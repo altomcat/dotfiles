@@ -1,0 +1,5 @@
+\.git
+#my-system.scm
+README.md
+^/.*\.org
+LICENSE

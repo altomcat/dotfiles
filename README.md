@@ -1,1 +1,1 @@
-Mon fichier README pour Stéphane.
+This repository contains my dotfiles setup.
