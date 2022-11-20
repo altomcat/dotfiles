@@ -9,38 +9,57 @@
 
   ;; fonts
   "font-mononoki"
-
+  "font-openmoji"
   ;; useful tools
   "aspell"
   "aspell-dict-en"
   "aspell-dict-fr"
   "alacritty"
-  ;; "xterm"
   "xrandr"
   "stow"
   "gnupg"
   "git"
+  "picom"
+  "nitrogen"
+  "volumeicon"
+  "thunar"
+  "ranger"
+  "unclutter"
+  "slock"
+
+  ;; webrowser 
+  "qutebrowser"
+  "xdg-utils" ;; for xdg-open
 
   ;; emacs stuff
   "emacs"
+  "emacs-org-appear"
   "emacs-org-roam"
+  "emacs-org-superstar"
+  "emacs-org-ref"
+  "emacs-org-fancy-priorities"
+  "emacs-org-noter"
+  "emacs-dash"
   "emacs-pdf-tools"
-  "emacs-sqlite"
+  "emacs-org-tree-slide"
+  "emacs-org-download"
   "emacs-emacsql"
   "emacs-ripgrep"
-
-
-  ;;"emacs-guix"
+  "emacs-page-break-lines"
+  "emacs-guix"
   "emacs-zmq"
   "emacs-treemacs-extra"
   "emacs-treemacs"
-  ;; "emacs-svg-lib"
-  ;; "emacs-svg-icon"
+  "emacs-tablist"
+  "emacs-svg-lib"
+  "emacs-svg-icon"
   "emacs-prescient"
   "emacs-powershell"
+  "emacs-project"
   "emacs-popper"
   "emacs-pdf-tools"
   "emacs-orderless"
+  "emacs-cmake-mode"
   ;; emacs-mastodon
   ;; emacs-markdown-mode
   "emacs-magit"
@@ -83,9 +102,9 @@
   ;; emacs-rjsx-mode
   "emacs-ripgrep"
   ;; emacs-rg
-  ;; emacs-rainbow-mode
-  ;; emacs-rainbow-identifiers
-  ;; emacs-rainbow-delimiters
+  "emacs-rainbow-mode"
+  "emacs-rainbow-identifiers"
+  "emacs-rainbow-delimiters"
   ;; emacs-rainbow-blocks
   "emacs-racket-mode"
   ;; emacs-pyvenv
@@ -96,12 +115,13 @@
   "emacs-ox-reveal"
   "emacs-ox-pandoc"
   "emacs-ox-hugo"
+  "emacs-toc-org"
   "emacs-org-roam-bibtex"
   "emacs-org-reveal"
   "emacs-org-pomodoro"
-  ;; emacs-org-drill-table
-  ;; emacs-org-drill
-  ;; emacs-ob-async
+  ;;emacs-org-drill-table
+  "emacs-org-drill"
+  "emacs-ob-async"
   ;; emacs-oauth2
   "emacs-nov-el"
   ;; emacs-mpv
@@ -117,9 +137,9 @@
   ;; emacs-julia-snail
   "emacs-julia-repl"
   "emacs-julia-mode"
-  ;; emacs-json-mode
+  "emacs-json-mode"
   ;; emacs-js2-refactor-el
-  ;; emacs-js2-mode
+  "emacs-js2-mode"
   "emacs-hydra"
   "emacs-helpful"
   "emacs-graphviz-dot-mode"
@@ -154,7 +174,7 @@
   ;; emacs-company-restclient
   ;; emacs-company-reftex
   ;; emacs-company-quickhelp
-  ;; emacs-company-posframe
+  "emacs-company-posframe"
   ;; emacs-company-math
   ;; emacs-company-lua
   ;; emacs-company-lsp
@@ -164,16 +184,19 @@
   ;; emacs-company-emoji
   ;; emacs-company-ebdb
   ;; emacs-company-cabal
-  ;; emacs-company-box
+  "emacs-company-box"
   ;; emacs-company-auctex
   "emacs-company"
   ;; emacs-cc-mode
   "emacs-bongo"
   ;; emacs-all-the-icons-ibuffer
   "emacs-all-the-icons-dired"
-  ;; emacs-all-the-icons-completion
+  "emacs-all-the-icons-completion"
   "emacs-all-the-icons"
   "emacs-ace-window"
   ;; emacs-ace-link
   ;; emacs-ace-jump-mode
+  "emacs-websocket"
+  "emacs-simple-httpd"
+  "emacs-visual-fill-column"
   ))
