@@ -2,23 +2,27 @@
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
+local scrlocker = 'slock'
 
 -- helper for multiple monitors (based on xrandr)
-local xrandr = require("xrandr")
+--local xrandr = require("xrandr")
 
 -- Standard awesome library
 local gears = require("gears")
-
 local awful = require("awful")
 require("awful.autofocus")
+
 -- Widget and layout library
 local wibox = require("wibox")
+
 -- Theme handling library
 local beautiful = require("beautiful")
+
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
+
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -307,9 +311,9 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
-    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
+    awful.key({"Control"}, "Right",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
-    awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
+    awful.key({"Control"}, "Left",     function () awful.tag.incmwfact(-0.05)          end,
               {description = "decrease master width factor", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
               {description = "increase the number of master clients", group = "layout"}),
@@ -382,8 +386,12 @@ globalkeys = gears.table.join(
 		{description = "Thunar file manager", group = "Apps"}),
    awful.key({modkey, "Control"}, "b",
 	function () awful.spawn.with_shell("qutebrowser") end,
-		{description = "qutebrowser", group = "Apps"})
+		{description = "qutebrowser", group = "Apps"}),
 
+   -- Hotkeys keybindings
+   awful.key({ modkey, controlkey }, "l",
+	function () os.execute(scrlocker) end,
+       		{description = "lock screen", group = "hotkeys"})
 )
 
 clientkeys = gears.table.join(
@@ -624,11 +632,34 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Gaps
 beautiful.useless_gap = 5
 
+-- This function will run once every time Awesome is started
+local function run_once(cmd_arr)
+    for _, cmd in ipairs(cmd_arr) do
+        awful.spawn.with_shell(string.format("pgrep -u $USER -fx '%s' > /dev/null || (%s)", cmd, cmd))
+    end
+end
+
+local background_processes = {
+    "xmodmap ~/.Xmodmap",
+    "pactl info",
+    "xrandr -s 1920x1080 --dpi 96",
+    "nitrogen --set-zoom-fill --random ~/.config/wallpapers",
+    "unclutter -root",
+    "picom -b",
+    "nm-applet",
+    "volumeicon",
+}
+
+run_once(background_processes)
+
 -- Application
-awful.spawn.with_shell("picom -b")
-awful.spawn.with_shell("xrandr -s 1920x1080")
-awful.spawn.with_shell("nitrogen --set-zoom-fill --random ~/.config/wallpapers")
-awful.spawn.with_shell("xrandr --dpi 96")
-awful.spawn.with_shell("nm-applet")
-awful.spawn.with_shell("volumeicon")
+-- awful.spawn.with_shell("xmodmap ~/.Xmodmap")
+-- awful.spawn.with_shell("picom -b")
+-- awful.spawn.with_shell("xrandr -s 1920x1080")
+-- awful.spawn.with_shell("nitrogen --set-zoom-fill --random ~/.config/wallpapers")
+-- awful.spawn.with_shell("xrandr --dpi 96")
+-- awful.spawn.with_shell("nm-applet")
+-- awful.spawn.with_shell("volumeicon")
 awful.spawn.with_shell("emacs --user altomcat --bg-daemon")
+
+
