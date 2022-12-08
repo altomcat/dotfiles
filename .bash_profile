@@ -8,3 +8,6 @@ if [ -f ~/.proxy ]; then . ~/.proxy; fi
 
 # Honor per-interactive-shell startup file
 if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
+
+#fix rendering bugs with github and other websites
+alias qutebrowser='QTWEBENGINE_CHROMIUM_FLAGS="--disable-seccomp-filter-sandbox" qutebrowser'
