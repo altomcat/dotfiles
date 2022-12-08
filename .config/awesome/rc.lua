@@ -5,7 +5,7 @@ pcall(require, "luarocks.loader")
 local scrlocker = 'slock'
 
 -- helper for multiple monitors (based on xrandr)
---local xrandr = require("xrandr")
+-- local xrandr = require("xrandr")
 
 -- Standard awesome library
 local gears = require("gears")
@@ -642,24 +642,16 @@ end
 local background_processes = {
     "xmodmap ~/.Xmodmap",
     "pactl info",
-    "xrandr -s 1920x1080 --dpi 96",
-    "nitrogen --set-zoom-fill --random ~/.config/wallpapers",
+    "xrandr -s 1920x1080",
     "unclutter -root",
     "picom -b",
     "nm-applet",
     "volumeicon",
+    "xrandr --dpi 96",
+    "nitrogen --set-zoom-fill --random ~/.config/wallpapers",
 }
 
 run_once(background_processes)
 
 -- Application
--- awful.spawn.with_shell("xmodmap ~/.Xmodmap")
--- awful.spawn.with_shell("picom -b")
--- awful.spawn.with_shell("xrandr -s 1920x1080")
--- awful.spawn.with_shell("nitrogen --set-zoom-fill --random ~/.config/wallpapers")
--- awful.spawn.with_shell("xrandr --dpi 96")
--- awful.spawn.with_shell("nm-applet")
--- awful.spawn.with_shell("volumeicon")
 awful.spawn.with_shell("emacs --user altomcat --bg-daemon")
-
-
