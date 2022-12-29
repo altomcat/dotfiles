@@ -186,10 +186,11 @@ end
 
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
---    set_wallpaper(s)
+    --    set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+      awful.tag({ "", "", "", "", "", "", "", "" }, s, awful.layout.layouts[1])
+      -- awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -441,7 +442,7 @@ clientkeys = gears.table.join(
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
-for i = 1, 9 do
+for i = 1, 8 do
     globalkeys = gears.table.join(globalkeys,
         -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,
@@ -496,7 +497,7 @@ clientbuttons = gears.table.join(
         c:emit_signal("request::activate", "mouse_click", {raise = true})
         awful.mouse.client.move(c)
     end),
-    awful.button({ modkey }, 3, function (c)
+  awful.button({ modkey }, 3, function (c)
         c:emit_signal("request::activate", "mouse_click", {raise = true})
         awful.mouse.client.resize(c)
     end)
@@ -510,58 +511,76 @@ root.keys(globalkeys)
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
     -- All clients will match this rule.
-    { rule = { },
-      properties = { border_width = beautiful.border_width,
-                     border_color = beautiful.border_normal,
-                     focus = awful.client.focus.filter,
-                     raise = true,
-                     keys = clientkeys,
-                     buttons = clientbuttons,
-                     screen = awful.screen.preferred,
-                     placement = awful.placement.no_overlap+awful.placement.no_offscreen,
-		     round_corners = true
+   -- Set Web browsers to always map on the tag named "" on screen 1.
+   { rule_any = {
+	class = {
+	   "Epiphany",
+	   "epiphany",
+	   "Firefox",
+	   "Chromium-browser",
+	   "qutebrowser",
+	   "Navigator",
+	   "icecat-default" }},
+     properties = { tag=""}
+   },
+
+   { rule = { class = "mpv" },
+     properties = { tag=""}
+   },
+
+   { rule = { class = ".virt-manager-real"},
+     properties = { tag = ""}
+   },
+
+   { rule = { },
+     properties = { border_width = beautiful.border_width,
+		    border_color = beautiful.border_normal,
+		    focus = awful.client.focus.filter,
+		    raise = true,
+		    keys = clientkeys,
+		    buttons = clientbuttons,
+		    screen = awful.screen.preferred,
+		    placement = awful.placement.no_overlap+awful.placement.no_offscreen,
+		    round_corners = true
      }
-    },
+   },
 
     -- Floating clients.
-    { rule_any = {
-        instance = {
-          "DTA",  -- Firefox addon DownThemAll.
-          "copyq",  -- Includes session name in class.
-          "pinentry",
-        },
-        class = {
-          "Arandr",
-          "Blueman-manager",
-          "Gpick",
-          "Kruler",
-          "MessageWin",  -- kalarm.
-          "Sxiv",
-          "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
-          "Wpa_gui",
-          "veromix",
-          "xtightvncviewer"},
+   -- { rule_any = {
+   --      instance = {
+   -- 	   "DTA",  -- Firefox addon DownThemAll.
+   -- 	   "copyq",  -- Includes session name in class.
+   -- 	   "pinentry",
+   --      },
+   --      class = {
+   -- 	   "Arandr",
+   -- 	   "Blueman-manager",
+   -- 	   "Gpick",
+   -- 	   "Kruler",
+   -- 	   "MessageWin",  -- kalarm.
+   -- 	   "Sxiv",
+   -- 	   "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
+   -- 	   "Wpa_gui",
+   -- 	   "veromix",
+   -- 	   "xtightvncviewer"},
 
-        -- Note that the name property shown in xprop might be set slightly after creation of the client
-        -- and the name shown there might not match defined rules here.
-        name = {
-          "Event Tester",  -- xev.
-        },
-        role = {
-          "AlarmWindow",  -- Thunderbird's calendar.
-          "ConfigManager",  -- Thunderbird's about:config.
-          "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
-        }
-      }, properties = { floating = true }},
+   --      -- Note that the name property shown in xprop might be set slightly after creation of the client
+   --      -- and the name shown there might not match defined rules here.
+   --      name = {
+   -- 	  "Event Tester",  -- xev.
+   --      },
+   --      role = {
+   -- 	   "AlarmWindow",  -- Thunderbird's calendar.
+   -- 	   "ConfigManager",  -- Thunderbird's about:config.
+   -- 	   "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
+   --      }
+   -- }, properties = { floating = true }},
 
-    -- Add titlebars to normal clients and dialogs
-    -- { rule_any = {type = { "normal", "dialog" }
-    --   }, properties = { titlebars_enabled = true }
-    -- },
+   -- -- Add titlebars to normal clients and dialogs
+   -- { rule_any = { type = { "normal", "dialog" }
+   --	}, properties = { titlebars_enabled = true }
+   -- },
 
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
 }
 -- }}}
 
@@ -642,16 +661,18 @@ end
 local background_processes = {
     "xmodmap ~/.Xmodmap",
     "pactl info",
-    "xrandr -s 1920x1080",
-    "unclutter -root",
+    "xrandr -s 1920x1200",
+--    "unclutter -root",    -- frozen issue on VMs with virt-manager
     "picom -b",
     "nm-applet",
     "volumeicon",
     "xrandr --dpi 96",
     "nitrogen --set-zoom-fill --random ~/.config/wallpapers",
+    "virt-manager",
 }
 
 run_once(background_processes)
 
 -- Application
 awful.spawn.with_shell("emacs --user altomcat --bg-daemon")
+awful.spawn.with_shell("icecat")
