@@ -23,6 +23,9 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
+-- Vicious library
+local vicious = require("vicious")
+
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -30,7 +33,21 @@ require("awful.hotkeys_popup.keys")
 
 local theme = {}
 theme.font = "Mononoki 10"
+theme.taglist_font = "Mononoki 16"
 beautiful.font = theme.font
+
+
+
+-- Vicious CPU widget
+local cpuwidget = wibox.widget.textbox()
+-- cpuwidget.forced_width = 65
+vicious.register(cpuwidget, vicious.widgets.cpu, "  $1%", 2)
+
+-- Vicious MEM widget
+local memwidget = wibox.widget.textbox()
+-- memwidget.forced_width = 65
+vicious.register(memwidget, vicious.widgets.mem, "  $1%", 2)
+
 
 -- declare a cpu widget
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
@@ -242,13 +259,16 @@ awful.screen.connect_for_each_screen(function(s)
 	    --	    volume_widget{
 	    --	       widget_type = 'arc'
 	    --	    },
+	    -- Vicious MEM widget
+	    cpuwidget,
+	    memwidget,
 	    cpu_widget(),
             mytextclock,
 	    logout_menu_widget{
-	       onlock = function () awful.spawn.with_shell('slock') end,
 	       -- onlogout = function () awful.quit end,
-	       -- onreboot = function () awful.spawn.with_shell('reboot') end,
-	       -- onpoweroff = function () awful.spawn.with_shell('shutdown now') end
+	       onlock = function () awful.spawn.with_shell('slock') end
+	       -- onreboot = function () awful.spawn.with_shell('sudo reboot') end,
+	       -- onpoweroff = function () awful.spawn.with_shell('sudo shutdown now') end
 	    },
             s.mylayoutbox,
 	 },
@@ -318,9 +338,9 @@ globalkeys = gears.table.join(
    awful.key({ modkey, "Shift"   }, "q", awesome.quit,
       {description = "quit awesome", group = "awesome"}),
 
-   awful.key({"Control"}, "Right",     function () awful.tag.incmwfact( 0.05)          end,
+   awful.key({"Control", "Shift"}, "Right",     function () awful.tag.incmwfact( 0.05)          end,
       {description = "increase master width factor", group = "layout"}),
-   awful.key({"Control"}, "Left",     function () awful.tag.incmwfact(-0.05)          end,
+   awful.key({"Control", "Shift"}, "Left",     function () awful.tag.incmwfact(-0.05)          end,
       {description = "decrease master width factor", group = "layout"}),
    awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
       {description = "increase the number of master clients", group = "layout"}),
@@ -656,6 +676,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Gaps
 beautiful.useless_gap = 5
+beautiful.gap_single_client = true
 
 -- This function will run once every time Awesome is started
 local function run_once(cmd_arr)
