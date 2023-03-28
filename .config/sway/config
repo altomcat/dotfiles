@@ -34,7 +34,6 @@ font pango: iosevka-aile medium 10
 set $wallpapers_path $HOME/.config/wallpapers
 output * bg $(find $wallpapers_path -type f | shuf -n 1) fill
 
-
 #
 # Example configuration:
 #
@@ -78,7 +77,8 @@ input type:mouse {
 
 # Applications
 
-exec alacritty
+#exec alacritty
+exec emacs --daemon
 
 # No tite bars
 
@@ -109,6 +109,8 @@ gaps inner 10
 
     # Start your launcher
     bindsym $mod+space exec $menu  ;; instead of dmenu
+    # bindsym  --whole-window BTN_RIGHT exec $menu ;; dmenu with right click
+
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
