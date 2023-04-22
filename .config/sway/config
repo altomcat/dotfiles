@@ -22,10 +22,13 @@ set $editor $VISUAL
 
 #exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus
 
-set $menu wofi --show run
+# set $menu wofi --show run
+set $menu fuzzel -w 50 -x 8 -y 8 -r 3 -b 232635FF -t A6ACCDFF -s A6ACCDFF  -S 232635FF -C c792EACC -m C792EACC -m C792EACC--no-fuzzy --icon-theme="Papirus-Dark" --font="Iosevka Comfy:weight=light:size=12" --prompt=-"🪟❯ " #--line-height 28
+
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
-font pango: iosevka-aile medium 10
+#font pango: iosevka-aile medium 10
+font pango: iosevka-comfy medium 10
 
 ### Output configuration
 #
@@ -89,13 +92,13 @@ gaps inner 10
 
 # GTK-theme and font
 
-# set $gnome-schema org.gnome.desktop.interface
-# exec_always {
-#     gsettings set $gnome-schema gtk-theme 'theme name'
-#     gsettings set $gnome-schema icon-theme 'icon theme name'
-#     gsettings set $gnome-schema cursor-theme 'cursor theme name'
-#     gsettings set $gnome-schema font-name 'Sans 10'
-# }
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Matcha-dark-azul'
+    gsettings set $gnome-schema icon-theme 'Papirus-Dark'
+    # gsettings set $gnome-schema cursor-theme 'cursor theme name'
+    gsettings set $gnome-schema font-name 'Iosevka Comfy 10'
+}
 
 ### Key bindings
 #
@@ -127,6 +130,7 @@ gaps inner 10
 
      # Start default editor
     bindsym $mod+Shift+e exec $editor
+    bindsym $mod+Ctrl+e exec $editor
 #
 # Moving around:
 #

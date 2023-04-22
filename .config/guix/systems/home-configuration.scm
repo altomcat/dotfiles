@@ -45,6 +45,7 @@ export VISUAL=\"emacsclient -c -a emacs\"
 
 		  "alacritty"
 		  "fuzzel"
+                  "ripgrep"
 
 		  "tree"
 		  "gnupg"
@@ -79,7 +80,7 @@ export VISUAL=\"emacsclient -c -a emacs\"
 		  "python-libvirt"
 
 		  ;; emacs
-		  "emacs"
+		  "emacs-next-pgtk"
                   "emacs-with-editor"  ;; need to look at this package
 		  "emacs-ef-themes"
 
