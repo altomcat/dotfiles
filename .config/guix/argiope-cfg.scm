@@ -60,6 +60,7 @@
 			  "swayhide"
 			  ;;"swaybg"
 			  "waybar"
+			  "redshift-wayland"
 			  "ntfs-3g"
 			  "exfat-utils"
 			  "fuse-exfat"
