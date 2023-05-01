@@ -34,7 +34,7 @@
  ;; The list of user accounts ('root' is implicit).
  (users (cons* (user-account
                 (name "li3n")
-                (comment "Li3N")
+                (comment "Li3n")
                 (group "users")
                 (home-directory "/home/li3n")
                 (supplementary-groups '("wheel" ; sudo
@@ -58,7 +58,7 @@
 			  "sway"
 			  "swaylock"
 			  "swayhide"
-			  ;;"swaybg"
+			  "emacs-next"
 			  "waybar"
 			  "redshift-wayland"
 			  "ntfs-3g"
