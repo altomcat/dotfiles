@@ -37,6 +37,8 @@ export VISUAL=\"emacsclient -c -a emacs\"
 		  "font-mononoki"
 		  "font-openmoji"
  		  "font-awesome"
+		  "unicode-emoji"
+		  "font-google-noto-emoji"
 
 		  ;; useful tools
 		  "aspell"
@@ -46,6 +48,7 @@ export VISUAL=\"emacsclient -c -a emacs\"
 		  "alacritty"
 		  "fuzzel"
                   "ripgrep"
+		  "unzip"
 
 		  "tree"
 		  "gnupg"
@@ -57,7 +60,7 @@ export VISUAL=\"emacsclient -c -a emacs\"
 		  "dconf" ;; store connections for virt-manager
 		  "xeyes" ;; to find Xwayland apps
                   "mpv"
-		  "redshift"
+		  ;;"redshift"
 
 		  ;; webrowser
 		  "vimb"
@@ -80,9 +83,9 @@ export VISUAL=\"emacsclient -c -a emacs\"
 		  "python-libvirt"
 
 		  ;; emacs
-		  "emacs-next-pgtk"
+		  ;;"emacs-next-pgtk"
+                  "emacs-next"
                   "emacs-with-editor"  ;; need to look at this package
-		  "emacs-ef-themes"
 
 		  "emacs-js2-mode"
 		  "emacs-hydra"
@@ -98,6 +101,10 @@ export VISUAL=\"emacsclient -c -a emacs\"
 		  "emacs-expand-region"
 		  ;; emacs-emojify
 		  "emacs-elfeed"
+
+		  "emacs-ef-themes"
+		  "emacs-doom-themes"
+		  "emacs-modus-themes"
 		  "emacs-doom-modeline"
 		  "emacs-dashboard"
 		  ;; emacs-csv-mode
@@ -127,14 +134,69 @@ export VISUAL=\"emacsclient -c -a emacs\"
 		  "emacs-simple-httpd"
 		  "emacs-visual-fill-column"
 
-
+		  "emacs-orderless"
 		  "emacs-vertico"
 		  "emacs-marginalia"
 		  "emacs-embark"
 
+		  "emacs-popper"
 		  "emacs-compat"
 		  "emacs-dash"
 		  "emacs-lsp-mode"
+
+		  "emacs-org-superstar"
+		  "emacs-citar"
+		  "emacs-citar-org-roam"
+		  "emacs-org-fancy-priorities"
+		  ;; "emacs-org-roam-ui"
+		  "emacs-saveplace-pdf-view"
+		  "emacs-pdf-tools"
+		  "emacs-org-noter"
+		  "emacs-org-appear"
+		  "emacs-org-tree-slide"
+		  "emacs-org-download"
+		  "emacs-org-drill"
+		  "emacs-toc-org"
+		  "emacs-org-pomodoro"
+		  "emacs-ox-reveal"
+		  "emacs-plantuml-mode"
+		  "emacs-org-present"
+		  "emacs-tablist"
+		  "emacs-simple-httpd"
+		  "emacs-sml-mode"
+		  "emacs-which-key"
+		  "emacs-perspective"
+		  "emacs-beacon"
+		  "emacs-keycast"
+		  "emacs-rainbow-delimiters"
+		  "emacs-highlight-indent-guides"
+		  "emacs-org-fragtog"
+		  "emacs-yasnippet"
+		  "emacs-yasnippet-snippets"
+		  "emacs-nov-el"
+		  "emacs-multiple-cursors"
+		  "emacs-smartparens"
+		  "emacs-aggressive-indent"
+
+		  "emacs-lsp-mode"
+		  "emacs-consult-lsp"
+		  "emacs-lsp-ui"
+		  "emacs-ccls"
+		  "emacs-lsp-treemacs"
+		  "emacs-dap-mode"
+		  "emacs-pyvenv"
+		  "emacs-jupyter"
+
+		  "emacs-julia-mode"
+		  "emacs-julia-repl"
+		  "emacs-typescript-mode"
+		  "emacs-json-mode"
+		  "emacs-js2-mode"
+
+		  "emacs-lua-mode"
+		  "emacs-cmake-mode"
+		  "emacs-powershell"
+
 		  ))))
  (services (list
 	    (service home-redshift-service-type
