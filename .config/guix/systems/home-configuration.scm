@@ -49,7 +49,7 @@ export VISUAL=\"emacsclient -c -a emacs\"
 		  "fuzzel"
                   "ripgrep"
 		  "unzip"
-
+		  "curl"
 		  "tree"
 		  "gnupg"
 	          "pinentry"
@@ -85,7 +85,7 @@ export VISUAL=\"emacsclient -c -a emacs\"
 		  ;; emacs
 		  ;;"emacs-next-pgtk"
                   "emacs-next"
-                  "emacs-with-editor"  ;; need to look at this package
+                  ;; "emacs-with-editor"  ;; need to look at this package
 
 		  "emacs-js2-mode"
 		  "emacs-hydra"
@@ -97,6 +97,7 @@ export VISUAL=\"emacsclient -c -a emacs\"
 		  "emacs-geiser-guile"
 		  "emacs-geiser"
 		  "emacs-guix"
+		  "emacs-magit"
 		  "emacs-flycheck"
 		  "emacs-expand-region"
 		  ;; emacs-emojify
@@ -140,9 +141,7 @@ export VISUAL=\"emacsclient -c -a emacs\"
 		  "emacs-embark"
 
 		  "emacs-popper"
-		  "emacs-compat"
-		  "emacs-dash"
-		  "emacs-lsp-mode"
+                  "emacs-lsp-mode"
 
 		  "emacs-org-superstar"
 		  "emacs-citar"
@@ -187,6 +186,7 @@ export VISUAL=\"emacsclient -c -a emacs\"
 		  "emacs-pyvenv"
 		  "emacs-jupyter"
 
+                  "emacs-ement"
 		  "emacs-julia-mode"
 		  "emacs-julia-repl"
 		  "emacs-typescript-mode"
@@ -202,8 +202,8 @@ export VISUAL=\"emacsclient -c -a emacs\"
 	    (service home-redshift-service-type
 		     (home-redshift-configuration
 		      (location-provider 'manual)
-		      (latitude 49.095)    ; @Irreville
-		      (longitude 1.2040)))
+		      (latitude 49.0)
+		      (longitude 1.2)))
             ;; (service home-bash-service-type
 	    ;; 	     (home-bash-configuration
 	    ;; 	      (environment-variables '(("ALTERNATE_EDITOR" . "")
@@ -215,5 +215,4 @@ export VISUAL=\"emacsclient -c -a emacs\"
 		       (list (openssh-host (name "Arrakis")
 					   (host-name "192.168.1.7")
 					   (user "altomcat"))))))
-	    %sway-launcher-service  ;; at the launcher at the end of the file ?
-	    )) )
+	    %sway-launcher-service )) )
