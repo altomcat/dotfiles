@@ -74,6 +74,12 @@ input type:mouse {
     dwt true			# remove cursor when typing
 }
 
+# setup the keyboard layout
+input * {
+        xkb_layout "us"
+        xkb_variant "intl"
+}
+
 # Applications
 
 #exec alacritty
