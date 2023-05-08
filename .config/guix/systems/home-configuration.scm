@@ -78,7 +78,7 @@ export VISUAL=\"emacsclient -c -a emacs\"
 
 		  ;; Virtualization
 		  "virt-manager"
-		  "virt-viewer"
+		  ;;"virt-viewer"
                   "libvirt"
 		  "python-libvirt"
 
