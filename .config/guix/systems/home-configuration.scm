@@ -62,6 +62,9 @@ export VISUAL=\"emacsclient -c -a emacs\"
                   "mpv"
 		  ;;"redshift"
 
+		  ;; dev
+		  "poetry"
+		  
 		  ;; webrowser
 		  "vimb"
                   "ungoogled-chromium-wayland"
