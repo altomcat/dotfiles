@@ -9,10 +9,10 @@
   (timezone "Europe/Paris")
   (keyboard-layout
     (keyboard-layout "us" "alt-intl"))
-  (host-name "Giedi-Prime")
+  (host-name "guix-vm")
   (users (cons* (user-account
                   (name "altomcat")
-                  (comment "Altomcat")
+                  (comment "altomcat")
                   (group "users")
                   (home-directory "/home/altomcat")
                   (supplementary-groups

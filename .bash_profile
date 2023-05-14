@@ -1,4 +1,4 @@
-GUIX_PROFILE="/home/altomcat/.guix-profile"
+GUIX_PROFILE="/home/$USER/.guix-profile"
 . "$GUIX_PROFILE/etc/profile"
 
 xinput set-prop 12 "libinput Middle Emulation Enabled" 1
@@ -9,6 +9,9 @@ if [ -f ~/.proxy ]; then . ~/.proxy; fi
 # Honor per-interactive-shell startup file
 if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
 
-GUIX_PROFILE="/home/$USER/.guix-profile"
-. "$GUIX_PROFILE/etc/profile"
+#fix rendering bugs with github and other websites
+alias qutebrowser='QTWEBENGINE_CHROMIUM_FLAGS="--disable-seccomp-filter-sandbox" qutebrowser'
+
+# define default text editor for awesome wm
+export EDITOR=emacsclient -c -a ""
 
