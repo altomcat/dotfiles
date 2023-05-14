@@ -8,3 +8,7 @@ if [ -f ~/.proxy ]; then . ~/.proxy; fi
 
 # Honor per-interactive-shell startup file
 if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
+
+GUIX_PROFILE="/home/$USER/.guix-profile"
+. "$GUIX_PROFILE/etc/profile"
+
