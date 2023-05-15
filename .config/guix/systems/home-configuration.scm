@@ -33,7 +33,7 @@ export VISUAL=\"emacsclient -c -a emacs\"
 	    (map specification->package
                  (list
 		  ;; fonts
-		  "font-iosevka-aile"
+		  "font-iosevka-comfy"
 		  "font-mononoki"
 		  "font-openmoji"
  		  "font-awesome"
@@ -90,6 +90,8 @@ export VISUAL=\"emacsclient -c -a emacs\"
                   "emacs-next"
                   ;; "emacs-with-editor"  ;; need to look at this package
 
+		  "emacs-substitute"
+		  
 		  "emacs-js2-mode"
 		  "emacs-hydra"
 		  "emacs-helpful"
