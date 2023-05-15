@@ -63,7 +63,7 @@ export VISUAL=\"emacsclient -c -a emacs\"
 		  ;;"redshift"
 
 		  ;; dev
-		  "poetry"
+		  ;;"poetry"
 		  
 		  ;; webrowser
 		  "vimb"
