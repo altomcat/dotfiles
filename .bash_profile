@@ -1,4 +1,4 @@
-GUIX_PROFILE="/home/altomcat/.guix-profile"
+GUIX_PROFILE="/home/$USER/.guix-profile"
 . "$GUIX_PROFILE/etc/profile"
 
 xinput set-prop 12 "libinput Middle Emulation Enabled" 1
@@ -14,3 +14,4 @@ alias qutebrowser='QTWEBENGINE_CHROMIUM_FLAGS="--disable-seccomp-filter-sandbox"
 
 # define default text editor for awesome wm
 export EDITOR=emacsclient -c -a ""
+
