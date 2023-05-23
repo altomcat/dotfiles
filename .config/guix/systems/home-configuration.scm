@@ -34,8 +34,8 @@ export VISUAL=\"emacsclient -c -a emacs\"
                  (list
 		  ;; fonts
 		  "font-iosevka-comfy"
-                  "font-openmoji"
- 		  "font-awesome"
+		  "font-openmoji"
+                  "font-awesome"
 		  "unicode-emoji"
 		  "font-google-noto-emoji"
 
@@ -89,6 +89,8 @@ export VISUAL=\"emacsclient -c -a emacs\"
                   "emacs-next"
                   ;; "emacs-with-editor"  ;; need to look at this package
 
+		  "emacs-substitute"
+		  
 		  "emacs-js2-mode"
 		  "emacs-hydra"
 		  "emacs-helpful"
