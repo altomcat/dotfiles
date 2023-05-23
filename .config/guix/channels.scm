@@ -8,13 +8,11 @@
            "2A39 3FFF 68F4 EF7A 3D29  12AF 6F51 20A0 22FB B2D5"))))
        (channel
 	(name 'my-guix-packages)
-	;; (url "git@github.com:altomcat/my-guix-packages.git")
-        (url "https://github.com/altomcat/my-guix-packages.git")
-	(commit "71d1ed6147dd9299de4a25eafde3057ec51d8e6c")
-	(branch "master"))
-       ;; Add pyros to Guix default channels.
-       ;; (channel
-       ;;  (name 'pyros)
-       ;;  (url "https://github.com/pyros-dev/pyros-channel.git")
-       ;;  (branch "master"))
+	(url "https://github.com/altomcat/my-guix-pkgs.git")
+        (introduction
+	 (make-channel-introduction
+	  "cb7dbb3911da911e06146d4a7bde372c4b5a4783"
+	  (openpgp-fingerprint
+	   "AA52 B3F3 E764 5F95 6BA1 23E2 43D7 A3F7 7931 A85D")))
+	)
        %default-channels)
