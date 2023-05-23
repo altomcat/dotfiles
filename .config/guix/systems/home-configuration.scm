@@ -33,9 +33,8 @@ export VISUAL=\"emacsclient -c -a emacs\"
 	    (map specification->package
                  (list
 		  ;; fonts
-		  "font-iosevka-aile"
-		  "font-mononoki"
-		  "font-openmoji"
+		  "font-iosevka-comfy"
+                  "font-openmoji"
  		  "font-awesome"
 		  "unicode-emoji"
 		  "font-google-noto-emoji"
@@ -63,8 +62,8 @@ export VISUAL=\"emacsclient -c -a emacs\"
 		  ;;"redshift"
 
 		  ;; dev
-		  "poetry"
-		  
+		  ;;"poetry"
+
 		  ;; webrowser
 		  "vimb"
                   "ungoogled-chromium-wayland"
