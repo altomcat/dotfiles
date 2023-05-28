@@ -13,5 +13,5 @@ if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
 alias qutebrowser='QTWEBENGINE_CHROMIUM_FLAGS="--disable-seccomp-filter-sandbox" qutebrowser'
 
 # define default text editor for awesome wm
-export EDITOR=emacsclient -c -a ""
+export EDITOR='emacsclient -c -a ""'
 
