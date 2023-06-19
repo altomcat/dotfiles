@@ -95,7 +95,7 @@
  (services (append
 	    (list
 	     (service openssh-service-type)
-	     ;; (service udisks-service-type)  ;; failed with dbus ?
+             ;; (service udisks-service-type)  ;; failed with dbus ?
 	     (service bluetooth-service-type)
 	     (service libvirt-service-type
 		      (libvirt-configuration
@@ -167,7 +167,11 @@
  (bootloader (bootloader-configuration
 	      (bootloader grub-efi-bootloader)
 	      (targets (list "/boot/efi"))
-	      (keyboard-layout keyboard-layout)))
+	      (keyboard-layout keyboard-layout)
+	      ;; (theme (grub-theme
+	      ;; 	      (inherit (grub-theme))
+	      ;; 	      (gfxmode '("1024x768x32" "auto"))))
+	      ))
  (mapped-devices (list (mapped-device
 			(source (uuid
 				 "5fd10b6d-5b91-454f-98bf-c6a7f01a3b07"))
