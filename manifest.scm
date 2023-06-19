@@ -4,35 +4,39 @@
 ;; capture the channels being used, as returned by "guix describe".
 ;; See the "Replicating Guix" section in the manual.
 
+
+
 (specifications->manifest
  (list
-
   ;; fonts
-  "font-mononoki"
+  ;;"font-mononoki"
+  "font-iosevka-comfy"
   "font-openmoji"
   ;; useful tools
   "aspell"
   "aspell-dict-en"
   "aspell-dict-fr"
   "alacritty"
+  ;;"gnome-terminal"
   "xrandr"
   "stow"
   "gnupg"
+  "openssh"
   "git"
   "picom"
   "nitrogen"
   "volumeicon"
   "thunar"
   "ranger"
-  "unclutter"
+  ;;"unclutter"
   "slock"
-
+  
   ;; webrowser 
   "qutebrowser"
   "xdg-utils" ;; for xdg-open
 
   ;; emacs stuff
-  "emacs"
+  "emacs-next"
   "emacs-org-appear"
   "emacs-org-roam"
   "emacs-org-superstar"
@@ -91,11 +95,10 @@
   "emacs-transient"
   ;; emacs-tramp-auto-auth
   ;; emacs-tramp
-  "emacs-straight-el"
   "emacs-so-long"
   "emacs-sml-mode"
   "emacs-smartparens"
-  ;; emacs-simple-httpd
+  "emacs-org-roam-ui"
   ;; emacs-selectrum
   ;; emacs-rustic
   ;; emacs-rust-mode
@@ -106,8 +109,8 @@
   "emacs-rainbow-identifiers"
   "emacs-rainbow-delimiters"
   ;; emacs-rainbow-blocks
-  "emacs-racket-mode"
-  ;; emacs-pyvenv
+  ;;"emacs-racket-mode"
+  "emacs-pyvenv"
   ;; emacs-python-environment
   ;; emacs-pulseaudio-control
   ;; emacs-prettier
@@ -146,7 +149,7 @@
   "emacs-graphql"
   "emacs-glsl-mode"
   ;; emacs-gif-screencast
-  "emacs-geiser-racket"
+  ;;"emacs-geiser-racket"
   "emacs-geiser-guile"
   ;; emacs-geiser-gauche
   ;; emacs-geiser-chez
@@ -199,4 +202,9 @@
   "emacs-websocket"
   "emacs-simple-httpd"
   "emacs-visual-fill-column"
+
+  "emacs-ef-themes"
+  "emacs-saveplace-pdf-view"
+  "emacs-citar"
+  "emacs-citar-org-roam"
   ))

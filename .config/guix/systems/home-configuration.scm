@@ -34,9 +34,8 @@ export VISUAL=\"emacsclient -c -a emacs\"
                  (list
 		  ;; fonts
 		  "font-iosevka-comfy"
-		  "font-mononoki"
 		  "font-openmoji"
- 		  "font-awesome"
+                  "font-awesome"
 		  "unicode-emoji"
 		  "font-google-noto-emoji"
 
@@ -64,7 +63,7 @@ export VISUAL=\"emacsclient -c -a emacs\"
 
 		  ;; dev
 		  ;;"poetry"
-		  
+
 		  ;; webrowser
 		  "vimb"
                   "ungoogled-chromium-wayland"
