@@ -145,6 +145,7 @@
                          (list cups-filters))))
           (set-xorg-configuration
            (xorg-configuration
+	    (resolutions  '( (3440 1440) (2560 1080) (720 576)))
             (keyboard-layout keyboard-layout)))
 	  )
     %my-desktop-services))
