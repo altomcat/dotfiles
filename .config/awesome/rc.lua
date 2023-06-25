@@ -688,7 +688,8 @@ end
 local background_processes = {
    "xmodmap ~/.Xmodmap",
    "pactl info",
-   "xrandr -s 1920x1200",
+#   "xrandr -s 1920x1200",
+   "xrandr -s 3440x1440@50",
    --    "unclutter -root",    -- frozen issue on VMs with virt-manager
    "picom -b",
    "nm-applet",
