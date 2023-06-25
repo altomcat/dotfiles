@@ -53,7 +53,8 @@
 		   (network-manager-service-type config =>
 						 (network-manager-configuration (inherit config)
 										(vpn-plugins (list network-manager-openvpn))))
-                   (dbus config => (dbus-service #:services (list blueman)))
+                   (dbus config => (dbus-root-service-type
+				    (services (list blueman))))
 		   (sysctl-service-type config =>
 					(sysctl-configuration
 					 (settings (append '(
@@ -112,7 +113,6 @@
       tlp
       wireguard-tools
       virt-manager
-      virt-viewer
       python-libvirt
       xftwidth
       (specification->package "awesome")
@@ -127,8 +127,10 @@
   (services
    (append
     (list (service gnome-desktop-service-type)
-	  (bluetooth-service #:auto-enable? #t)
-	  (spice-vdagent-service)
+	  (service bluetooth-service-type
+		   (bluetooth-configuration
+		    (auto-enable? #t)))
+	  (service spice-vdagent-service-type)
 	  (simple-service 'wireguard-module
                           kernel-module-loader-service-type
                           '("wireguard"))
@@ -145,21 +147,20 @@
                          (list cups-filters))))
           (set-xorg-configuration
            (xorg-configuration
-	    (resolutions  '( (3440 1440) (2560 1080) (720 576)))
             (keyboard-layout keyboard-layout)))
 	  )
     %my-desktop-services))
 
-  ;; Allow resolution of '.local' host names with mDNS
-  ;;(name-service-switch %mdns-host-lookup-nss)))
 
   (bootloader
     (bootloader-configuration
       (bootloader grub-efi-bootloader)
-      (target "/boot/efi")
+      (targets (list "/boot/efi"))
       (keyboard-layout keyboard-layout)))
   (swap-devices
-    (list (uuid "94d6d8e8-6de7-42bb-b3c6-ffaff76053d2")))
+   (list
+    (swap-space
+       (target (uuid "94d6d8e8-6de7-42bb-b3c6-ffaff76053d2")))))
   (file-systems
     (cons* (file-system
              (mount-point "/boot/efi")
@@ -177,4 +178,7 @@
                (uuid "500a431d-816d-4272-a822-ffb06bba0daa"
                      'ext4))
              (type "ext4"))
-           %base-file-systems)))
+           %base-file-systems))
+
+  ;; Allow resolution of '.local' host names with mDNS
+  (name-service-switch %mdns-host-lookup-nss))
