@@ -412,7 +412,7 @@ globalkeys = gears.table.join(
       function () awful.spawn.with_shell("thunar") end,
       {description = "Thunar file manager", group = "Apps"}),
    awful.key({modkey, "Control"}, "b",
-      function () awful.spawn.with_shell("qutebrowser") end,
+      function () awful.spawn.with_shell("chromium") end,
       {description = "qutebrowser", group = "Apps"}),
 
    -- Hotkeys keybindings
@@ -702,4 +702,4 @@ run_once(background_processes)
 
 -- Application
 awful.spawn.with_shell("emacs --user altomcat --bg-daemon")
-awful.spawn.with_shell("icecat")
+awful.spawn.with_shell("chromium")
