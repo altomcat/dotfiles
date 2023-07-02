@@ -25,7 +25,8 @@
  (kernel linux)
  (initrd microcode-initrd)
  (firmware (list linux-firmware))
- ;;(kernel-arguments '("module_blacklist=pcspkr"))
+ (kernel-arguments
+  (cons "video=1920x1200@59.973" %default-kernel-arguments))
  (locale "fr_FR.utf8")
  (timezone "Europe/Paris")
  (keyboard-layout (keyboard-layout "us" "intl"))
