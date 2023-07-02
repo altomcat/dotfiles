@@ -412,7 +412,7 @@ globalkeys = gears.table.join(
       function () awful.spawn.with_shell("thunar") end,
       {description = "Thunar file manager", group = "Apps"}),
    awful.key({modkey, "Control"}, "b",
-      function () awful.spawn.with_shell("qutebrowser") end,
+      function () awful.spawn.with_shell("chromium") end,
       {description = "qutebrowser", group = "Apps"}),
 
    -- Hotkeys keybindings
@@ -688,7 +688,8 @@ end
 local background_processes = {
    "xmodmap ~/.Xmodmap",
    "pactl info",
-   "xrandr -s 1920x1200",
+#   "xrandr -s 1920x1200",
+   "xrandr -s 3440x1440@50",
    --    "unclutter -root",    -- frozen issue on VMs with virt-manager
    "picom -b",
    "nm-applet",
@@ -702,4 +703,4 @@ run_once(background_processes)
 
 -- Application
 awful.spawn.with_shell("emacs --user altomcat --bg-daemon")
-awful.spawn.with_shell("icecat")
+awful.spawn.with_shell("chromium")
