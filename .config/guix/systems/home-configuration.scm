@@ -60,6 +60,9 @@ export VISUAL=\"emacsclient -c -a emacs\"
 		  "xeyes" ;; to find Xwayland apps
                   "mpv"
 		  ;;"redshift"
+		  "slurp"
+		  "grim"
+		  "swappy" ;; screenshot for sway
 		  "colord"
 		  
 		  ;; dev
@@ -79,7 +82,8 @@ export VISUAL=\"emacsclient -c -a emacs\"
 		  "wofi" ;; launcher apps
                   "bemenu" ;; alternative menu for sway
 		  "swayidle"
-
+		  "wl-clipboard"
+		  
 		  ;; Virtualization
 		  "virt-manager"
 		  ;;"virt-viewer"
