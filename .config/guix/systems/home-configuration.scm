@@ -70,6 +70,7 @@ export VISUAL=\"emacsclient -c -a emacs\"
                   "ungoogled-chromium-wayland"
 
 		  ;; themes
+		  "hicolor-icon-theme"
 		  "adwaita-icon-theme" ;; for virt-manager icons
 		  "matcha-theme"
 		  "papirus-icon-theme"
