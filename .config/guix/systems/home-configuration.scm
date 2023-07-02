@@ -60,7 +60,8 @@ export VISUAL=\"emacsclient -c -a emacs\"
 		  "xeyes" ;; to find Xwayland apps
                   "mpv"
 		  ;;"redshift"
-
+		  "colord"
+		  
 		  ;; dev
 		  ;;"poetry"
 
@@ -104,7 +105,7 @@ export VISUAL=\"emacsclient -c -a emacs\"
 		  "emacs-magit"
 		  "emacs-flycheck"
 		  "emacs-expand-region"
-		  ;; emacs-emojify
+		  "emacs-emojify"
 		  "emacs-elfeed"
 
 		  "emacs-ef-themes"
