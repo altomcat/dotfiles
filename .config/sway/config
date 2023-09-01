@@ -104,6 +104,9 @@ input * {
 #exec alacritty
 exec emacs --daemon -u $USER
 
+#exec nm-applet
+exec_always nm-applet --indicator
+
 # No tite bars
 
 default_border pixel 1
