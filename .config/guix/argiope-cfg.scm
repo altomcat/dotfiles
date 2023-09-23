@@ -73,13 +73,13 @@
                           "exfat-utils"
                           "fuse-exfat"
                           "wireguard-tools"
-                          "nss-certs"))
+                          "nss-certs"
+			  "gvfs"))
                    %base-packages))
 
  (services (append
             (list
              (service openssh-service-type)
-             ;; (service udisks-service-type)  ;; failed with dbus ?
              (service bluetooth-service-type)
              (service libvirt-service-type
                       (libvirt-configuration
