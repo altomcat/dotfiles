@@ -54,6 +54,7 @@ export VISUAL=\"emacsclient -c -a emacs\"
                   "pinentry"
                   "pinentry-emacs"
                   "thunar"
+		  "thunar-volman"
                   "neofetch"
                   "xdg-utils" ;; for xdg-open
                   "dconf" ;; store connections for virt-manager
@@ -64,7 +65,10 @@ export VISUAL=\"emacsclient -c -a emacs\"
                   "grim"
                   "swappy" ;; screenshot for sway
                   "colord"
-                  
+
+                  ;; utils
+		  "ntfs-3g"
+		  
                   ;; dev
                   ;;"poetry"
 
