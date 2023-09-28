@@ -104,6 +104,9 @@ input * {
 #exec alacritty
 exec emacs --daemon -u $USER
 
+#exec nm-applet
+exec_always nm-applet --indicator
+
 # No tite bars
 
 default_border pixel 1
@@ -132,7 +135,7 @@ exec_always {
     bindsym $mod+Shift+c kill		
 
     # Lock screen
-    bindsym $mod++l exec swaylock -f -c 000000
+    bindsym $mod+l exec swaylock -f -c 000000
     
     # Start Your launcher
     bindsym $mod+space exec $menu  ;; instead of dmenu
