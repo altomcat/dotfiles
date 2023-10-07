@@ -28,10 +28,12 @@
     "xrandr"
     "stow"
     "gnupg"
-
+    "p7zip"
+    
     ;;development
     "make"
     "git"
+    "openjdk:jdk"
     
     "openssh"
     "picom"
