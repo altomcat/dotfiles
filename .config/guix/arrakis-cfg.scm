@@ -53,8 +53,8 @@
 		   (network-manager-service-type config =>
 						 (network-manager-configuration (inherit config)
 										(vpn-plugins (list network-manager-openvpn))))
-                   (dbus config => (dbus-root-service-type
-				    (services (list blueman))))
+                   ;; (dbus config => (dbus-root-service-type
+		   ;; 		    (services (list blueman))))
 		   (sysctl-service-type config =>
 					(sysctl-configuration
 					 (settings (append '(
@@ -127,9 +127,9 @@
   (services
    (append
     (list (service gnome-desktop-service-type)
-	  (service bluetooth-service-type
-		   (bluetooth-configuration
-		    (auto-enable? #t)))
+	  (service bluetooth-service-type)
+		   ;; (bluetooth-configuration
+		   ;;  (auto-enable? #t)))
 	  (service spice-vdagent-service-type)
 	  (simple-service 'wireguard-module
                           kernel-module-loader-service-type
