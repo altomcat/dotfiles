@@ -60,7 +60,10 @@ output HDMI-A-2 {
   scale 1
 }
 
-
+output HDMI-A-3 {
+  mode 3440x1440@50hz
+  scale 1
+}
 
 ### Idle configuration
 #
@@ -245,7 +248,7 @@ mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
     # up will shrink the containers height
-    # down will grow the containers height
+ # down will grow the containers height
     # Ditto, with arrow keys
     bindsym Left resize shrink width 10px
     bindsym Down resize grow height 10px
