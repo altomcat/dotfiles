@@ -60,7 +60,8 @@ export VISUAL=\"emacsclient -c -a emacs\"
                   "dconf" ;; store connections for virt-manager
                   "xeyes" ;; to find Xwayland apps
                   "mpv"
-                  ;;"redshift"
+		  "redshift-wayland"
+		  ;;"gammastep"
                   "slurp"
                   "grim"
                   "swappy" ;; screenshot for sway
