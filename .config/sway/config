@@ -45,10 +45,10 @@ output * bg $(find $wallpapers_path -type f | shuf -n 1) fill
 #output $outputEV2455 resolution 3440x1440
 
 
-output "Unknown M34WQ 0x00000B90" {
-  mode 3440x1440@50hz
-  scale 1
-}
+# output "GIGA-BYTE TECHNOLOGY CO., LTD. M34WQ 0x00000B900" {
+#   mode 3440x1440@50hz
+#   scale 1
+# }
 
 # output HDMI-A-1 {
 #   mode 3440x1440@50hz
@@ -177,31 +177,40 @@ exec_always {
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
+
+set $ws1 "1:   "
+set $ws2 "2:   "
+set $ws3 "3:   "
+set $ws4 "4:   "
+set $ws5 "5:   "
+set $ws6 "6:   "
+set $ws7 "7:  "
+
 #
 # Workspaces:
 #
     # Switch to workspace
-    bindsym $mod+1 workspace number 1
-    bindsym $mod+2 workspace number 2
-    bindsym $mod+3 workspace number 3
-    bindsym $mod+4 workspace number 4
-    bindsym $mod+5 workspace number 5
-    bindsym $mod+6 workspace number 6
-    bindsym $mod+7 workspace number 7
-    bindsym $mod+8 workspace number 8
-    bindsym $mod+9 workspace number 9
-    bindsym $mod+0 workspace number 10
+    bindsym $mod+1 workspace $ws1
+    bindsym $mod+2 workspace $ws2
+    bindsym $mod+3 workspace $ws3
+    bindsym $mod+4 workspace $ws4
+    bindsym $mod+5 workspace $ws5
+    bindsym $mod+6 workspace $ws6
+    bindsym $mod+7 workspace $ws7
+    # bindsym $mod+8 workspace number 8
+    # bindsym $mod+9 workspace number 9
+    # bindsym $mod+0 workspace number 10
     # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace number 1
-    bindsym $mod+Shift+2 move container to workspace number 2
-    bindsym $mod+Shift+3 move container to workspace number 3
-    bindsym $mod+Shift+4 move container to workspace number 4
-    bindsym $mod+Shift+5 move container to workspace number 5
-    bindsym $mod+Shift+6 move container to workspace number 6
-    bindsym $mod+Shift+7 move container to workspace number 7
-    bindsym $mod+Shift+8 move container to workspace number 8
-    bindsym $mod+Shift+9 move container to workspace number 9
-    bindsym $mod+Shift+0 move container to workspace number 10
+    bindsym $mod+Shift+1 move container to workspace $ws1
+    bindsym $mod+Shift+2 move container to workspace $ws2
+    bindsym $mod+Shift+3 move container to workspace $ws3
+    bindsym $mod+Shift+4 move container to workspace $ws4
+    bindsym $mod+Shift+5 move container to workspace $ws5
+    bindsym $mod+Shift+6 move container to workspace $ws6
+    bindsym $mod+Shift+7 move container to workspace $ws7
+    # bindsym $mod+Shift+8 move container to workspace number 8
+    # bindsym $mod+Shift+9 move container to workspace number 9
+    # bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #
@@ -261,6 +270,39 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+#
+# Floats
+#
+set {
+    $ii inhibit_idle focus
+    $game inhibit_idle focus; floating enable; border none; fullscreen enable; shadows disable
+    $popup floating enable; border pixel 1; sticky enable; shadows enable
+    $float floating enable; border pixel 1; shadows enable
+    $video inhibit_idle fullscreen; border none; max_render_time off
+    $important inhibit_idle open; floating enable; border pixel 1
+    $max inhibit_idle visible; floating enable; sticky enable; border pixel 1
+}
+
+}
+for_window {
+  [app_id="mpv"] floating enable
+  [shell="xwayland"] title_format "%title [XWayland]"
+  [app_id="firefox"] inhibit_idle fullscreen
+  [title="(?:Open|Save) (?:File|Folder|As)"] floating enable, resize set width 1030 height 710
+  [window_role="pop-up"] floating enable
+  [window_role="bubble"] floating enable
+  [window_role="dialog"] floating enable
+  [window_type="dialog"] floating enable
+  [class="steam_app.*"] inhibit_idle fullscreen; floating enable; border none
+  [app_id="pavucontrol"] $popup
+
+  [instance="chromium"] fullscreen
+  [app_id="alacritty"] saturation set 2; blur enable
+  # [app_id="transmission-remote-gtk" title="Add Torrents*"] $popup
+  # terminal
+  # [app_id=$term_id] move to scratchpad, scratchpad show, $t_pos
+  # [app_id=$other_term_id] move to scratchpad, scratchpad show, t_pos 
+}
 
 # my bindings
 
