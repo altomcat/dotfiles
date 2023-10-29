@@ -95,6 +95,7 @@
 	  "wireguard-tools"
 	  "virt-manager"
 	  "xftwidth"
+	  "chili-sddm-theme"
 	  "nss-certs"))
    %base-packages))
 
@@ -107,6 +108,7 @@
     (service gnome-desktop-service-type)
     (service sddm-service-type
 	     (sddm-configuration
+	      (theme "chili")
 	      (display-server "wayland")
 	      (remember-last-user? #t)
 	      ))
