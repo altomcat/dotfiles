@@ -14,15 +14,24 @@
         "all-outputs": true,
         "format": "{name}: {icon}",
         "format-icons": {
-            "1": "",
+            "1": "",
             "2": "",
             "3": "",
             "4": "",
             "5": "",
+	    "6": "",
             "urgent": "",
             "focused": "",
-            "default": ""
-        }
+            "default": ""
+        },
+	"persistent_workspaces": {
+	 "1": [],
+	 "2": [],
+	 "3": [],
+	 "4": [],
+	 "5": [],
+	 "6": []
+	 }
     },
     "keyboard-state": {
         "numlock": true,

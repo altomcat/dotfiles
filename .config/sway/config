@@ -65,6 +65,12 @@ output HDMI-A-3 {
   scale 1
 }
 
+#
+# sway notification center
+#
+exec swaync
+
+
 ### Idle configuration
 #
 # Example configuration:
@@ -104,8 +110,13 @@ input * {
 
 # Applications
 
+exec virt-manager
+
 #exec alacritty
 exec emacs --daemon -u $USER
+
+# automount USB drives
+exec udiskie --tray
 
 #exec nm-applet
 exec_always nm-applet --indicator
@@ -131,6 +142,9 @@ exec_always {
 #
 # Basics:
 #
+    # Toggle control center
+    bindsym $mod+Shift+n exec swaync-client -t -sw
+    
     # Start a terminal
     bindsym $mod+Return exec $term
 
@@ -178,39 +192,32 @@ exec_always {
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
 
-set $ws1 "1:   "
-set $ws2 "2:   "
-set $ws3 "3:   "
-set $ws4 "4:   "
-set $ws5 "5:   "
-set $ws6 "6:   "
-set $ws7 "7:  "
-
 #
 # Workspaces:
 #
     # Switch to workspace
-    bindsym $mod+1 workspace $ws1
-    bindsym $mod+2 workspace $ws2
-    bindsym $mod+3 workspace $ws3
-    bindsym $mod+4 workspace $ws4
-    bindsym $mod+5 workspace $ws5
-    bindsym $mod+6 workspace $ws6
-    bindsym $mod+7 workspace $ws7
-    # bindsym $mod+8 workspace number 8
-    # bindsym $mod+9 workspace number 9
-    # bindsym $mod+0 workspace number 10
+    bindsym $mod+1 workspace 1
+    bindsym $mod+2 workspace 2
+    bindsym $mod+3 workspace 3
+    bindsym $mod+4 workspace 4
+    bindsym $mod+5 workspace 5
+    bindsym $mod+6 workspace 6
+    bindsym $mod+7 workspace 7
+    bindsym $mod+8 workspace 8
+    bindsym $mod+9 workspace 9
+    bindsym $mod+0 workspace 10
+
     # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace $ws1
-    bindsym $mod+Shift+2 move container to workspace $ws2
-    bindsym $mod+Shift+3 move container to workspace $ws3
-    bindsym $mod+Shift+4 move container to workspace $ws4
-    bindsym $mod+Shift+5 move container to workspace $ws5
-    bindsym $mod+Shift+6 move container to workspace $ws6
-    bindsym $mod+Shift+7 move container to workspace $ws7
-    # bindsym $mod+Shift+8 move container to workspace number 8
-    # bindsym $mod+Shift+9 move container to workspace number 9
-    # bindsym $mod+Shift+0 move container to workspace number 10
+    bindsym $mod+Shift+1 move container to workspace 1
+    bindsym $mod+Shift+2 move container to workspace 2
+    bindsym $mod+Shift+3 move container to workspace 3
+    bindsym $mod+Shift+4 move container to workspace 4
+    bindsym $mod+Shift+5 move container to workspace 5
+    bindsym $mod+Shift+6 move container to workspace 6
+    bindsym $mod+Shift+7 move container to workspace 7
+    bindsym $mod+Shift+8 move container to workspace 8
+    bindsym $mod+Shift+9 move container to workspace 9
+    bindsym $mod+Shift+0 move container to workspace 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #
@@ -257,7 +264,7 @@ mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
     # up will shrink the containers height
- # down will grow the containers height
+    # down will grow the containers height
     # Ditto, with arrow keys
     bindsym Left resize shrink width 10px
     bindsym Down resize grow height 10px
@@ -283,7 +290,9 @@ set {
     $max inhibit_idle visible; floating enable; sticky enable; border pixel 1
 }
 
-}
+#
+# use swaymsg -t get_tree to determine the Class, App-id or Instance of an application.
+#
 for_window {
   [app_id="mpv"] floating enable
   [shell="xwayland"] title_format "%title [XWayland]"
@@ -295,14 +304,20 @@ for_window {
   [window_type="dialog"] floating enable
   [class="steam_app.*"] inhibit_idle fullscreen; floating enable; border none
   [app_id="pavucontrol"] $popup
-
-  [instance="chromium"] fullscreen
+  [class="icecat-default"] fullscreen
+  [class="Chromium-browser"] fullscreen
   [app_id="alacritty"] saturation set 2; blur enable
   # [app_id="transmission-remote-gtk" title="Add Torrents*"] $popup
   # terminal
   # [app_id=$term_id] move to scratchpad, scratchpad show, $t_pos
   # [app_id=$other_term_id] move to scratchpad, scratchpad show, t_pos 
 }
+
+#
+# Assign apps to worspace
+#
+assign [app_id="virt-manager"] workspace 6
+#assign [app_id="emacs"] workspace 3
 
 # my bindings
 
