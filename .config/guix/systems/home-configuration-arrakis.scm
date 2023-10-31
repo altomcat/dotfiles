@@ -48,8 +48,6 @@
     "dconf" ;; store connections for virt-manager
     "xeyes" ;; to find Xwayland apps
     "mpv"
-    "redshift-wayland"
-    ;;"gammastep"
     "slurp"
     "grim"
     "swappy" ;; screenshot for sway
@@ -59,8 +57,7 @@
     "ntfs-3g"
 
     ;; dev
-    ;;"poetry"
-
+    
     ;; webrowser
     "vimb"
     "ungoogled-chromium"
@@ -76,17 +73,16 @@
     "wofi" ;; launcher apps
     "bemenu" ;; alternative menu for sway
     "swayidle"
+    "swaynotificationcenter"
     "wl-clipboard"
 
     ;; Virtualization
     "virt-manager"
-    ;;"virt-viewer"
     "libvirt"
     "python-libvirt"
 
     ;; emacs
-    ;;"emacs-next-pgtk"
-    
+    "emacs-pgtk"
     "emacs-substitute"
     "emacs-js2-mode"
     "emacs-hydra"
@@ -117,7 +113,6 @@
     "emacs-all-the-icons-dired"
     "emacs-all-the-icons-completion"
     "emacs-all-the-icons"
-    "emacs-nerd-icons"
     "emacs-ace-window"
     "emacs-websocket"
     "emacs-simple-httpd"
@@ -186,7 +181,6 @@
     "emacs-tempel"
     "emacs-tempel-collection"
     
-    "emacs"
     "emacs-compat"
     "emacs-transient"
     "emacs-eros"
@@ -195,10 +189,10 @@
     "emacs-org-contrib"
     "emacs-mpv"
     "emacs-aio"
+    "emacs-font-lock+"
     "tree-sitter"
 
     "lsof"
-    "ungoogled-chromium"
     "gnome-tweaks"
     "qemu"
     "icecat"
@@ -207,47 +201,34 @@
     "youtube-dl"
     "gnome-themes-extra"
     "volumeicon"
-    ;;"uget"
-    ;;"vimb"
     "transmission-remote-gtk"
     "mpv"
     "ffmpeg"
     "network-manager-openvpn"
     "pavucontrol"
     "blueman"
-    "dunst"
-    "polybar"
+    ;;"dunst"
     "transmission"
     "gnome-bluetooth"
     "xdot"
     "peek"
     "pasystray"
     "arandr"
-    ;;"picom"
     "gtk+:bin"
     "protonvpn-cli"
     "gtk+"
-    "emacs-pdf-tools"
     "graphviz"
-    ;;"nitrogen"
     "git"
-    "bluez"
-    "gnupg"
     "rmlint"
-    "alacritty"
-    "xdg-utils"
     "sxiv"
     "screenfetch"
     "gnome-shell-extensions"
     "scrot"
     "xftwidth"
     "xsetroot"
-    ;;"dzen"
     "fish"
     "python"
-    ;;"dmenu"
     "xhost"
-    ;;"xrandr"
     "unclutter"
     "xprop"
     "xev"
@@ -255,7 +236,6 @@
     "xmodmap"
     "neofetch"
     "gcc-toolchain@12"
-    "ripgrep"
     "rust"
     "cmake"
     "playerctl"
@@ -266,7 +246,6 @@
     "shellcheck"
     "hlint"
     "htop"
-    ;;"aircrack-ng"
     "libpng"
     "p7zip"
     "btop"
@@ -280,9 +259,9 @@
     "automake"
     "autoconf"
     "file"
-    ;;"font-mononoki"
     "cmatrix"
-    "zstd" )
+    "zstd"
+    )
    )
   )
 

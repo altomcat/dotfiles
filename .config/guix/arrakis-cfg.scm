@@ -10,8 +10,8 @@
 	     (nongnu packages linux)
              (nongnu system linux-initrd))
 
-(use-service-modules linux dbus cups virtualization docker desktop networking ssh spice xorg)
-(use-package-modules gnome emacs vpn virtualization cups spice wm)
+(use-service-modules linux dbus cups virtualization docker desktop networking ssh spice xorg audio)
+(use-package-modules gnome emacs vpn virtualization cups spice wm mpd)
 
 
 (define %my-desktop-services
@@ -81,19 +81,19 @@
 	  "swaylock"
 	  "swayhide"
 	  "waybar"
+	  "redshift-wayland"
 	  "wlr-randr"
 	  "ntfs-3g"
 	  "exfat-utils"
 	  "fuse-exfat"
-	  "emacs"
-	  "xterm"
+          "xterm"
 	  "bluez"
 	  "bluez-alsa"
 	  "pulseaudio"
 	  "gvfs"
 	  "tlp"
 	  "wireguard-tools"
-	  "virt-manager"
+          "udiskie"
 	  "xftwidth"
 	  "chili-sddm-theme"
 	  "nss-certs"))
@@ -132,6 +132,10 @@
 	      (program (file-append swaylock "/bin/swaylock"))
 	      (using-pam? #t)
 	      (using-setuid? #f)))
+    ;; (service mpd-service-type
+    ;;          (mpd-configuration
+    ;; 	      (user "altomcat")
+    ;;           (music-directory "/home/altomcat/Musique")))
     ;; (set-xorg-configuration
     ;;  (xorg-configuration
     ;;   (keyboard-layout keyboard-layout)))
