@@ -22,7 +22,7 @@
 	    "6": "",
             "urgent": "",
             "focused": "",
-            "default": ""
+            "default": ""
         },
 	"persistent_workspaces": {
 	 "1": [],
@@ -95,8 +95,10 @@
         "format-alt": "{:%d-%m-%Y}"
     },
     "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
+	"interval": 1,
+	"format": "{icon0}{icon1}{icon2}{icon3} {usage:>2}% ",
+	"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+	"on-click" : "alacritty --class btop -e btop"
     },
     "memory": {
         "format": "{}% "
@@ -134,10 +136,10 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
+        "format-disconnected": "Disconnected ",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
