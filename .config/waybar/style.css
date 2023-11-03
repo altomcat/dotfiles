@@ -278,3 +278,7 @@ label:focus {
 #scratchpad.empty {
 	background-color: transparent;
 }
+
+#custom-notification {
+    font-family: "FontAwesome";
+}
