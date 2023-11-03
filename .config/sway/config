@@ -108,8 +108,13 @@ input * {
         xkb_variant "intl"
 }
 
+
 # Applications
 
+# Launch mpd server
+exec mpd
+
+# Launch VM manager
 exec virt-manager
 
 #exec alacritty
