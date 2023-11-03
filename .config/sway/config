@@ -312,7 +312,8 @@ for_window {
   [class="icecat-default"] fullscreen
   [class="Chromium-browser"] fullscreen
   [app_id="alacritty"] saturation set 2; blur enable
-  [app_id="btop"] floating enable, resize set width 640 heigth 192
+  [app_id="btop"] floating enable, border pixel 1, resize set width 740px height 440px
+  [app_id="vis"] floating enable, border pixel 1, resize set width 600px height 250px, sticky enable 
   # [app_id="transmission-remote-gtk" title="Add Torrents*"] $popup
   # terminal
   # [app_id=$term_id] move to scratchpad, scratchpad show, $t_pos
