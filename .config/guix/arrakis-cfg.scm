@@ -10,8 +10,8 @@
 	     (nongnu packages linux)
              (nongnu system linux-initrd))
 
-(use-service-modules linux dbus cups virtualization docker desktop networking ssh spice xorg audio)
-(use-package-modules gnome emacs vpn virtualization cups spice wm mpd)
+(use-service-modules linux dbus cups virtualization docker desktop networking ssh spice xorg)
+(use-package-modules gnome emacs vpn virtualization cups spice wm)
 
 
 (define %my-desktop-services
