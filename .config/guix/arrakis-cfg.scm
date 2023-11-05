@@ -81,7 +81,6 @@
 	  "swaylock"
 	  "swayhide"
 	  "waybar"
-	  "redshift-wayland"
 	  "wlr-randr"
 	  "ntfs-3g"
 	  "exfat-utils"
