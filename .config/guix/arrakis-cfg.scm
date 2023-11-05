@@ -30,7 +30,8 @@
 							     ("net.ipv6.conf.enp3s0.disable_ipv6" . "1")
 							     ("net.ipv6.conf.all.disable_ipv6" . "1")
 							     ("net.ipv6.conf.default.disable_ipv6" . "1"))
-							   %default-sysctl-settings))))))
+							   %default-sysctl-settings))))
+		   ))
 (operating-system
  ;; Use non-free Linux and firmware
  (kernel linux)
@@ -40,8 +41,8 @@
 		  linux-firmware
   		  %base-firmware))
  (kernel-arguments
-  ;; (cons "video=1920x1200@59.973" %default-kernel-arguments)
-  (cons "video=3440x1440@50" %default-kernel-arguments))
+  ;; (cons "video=1920x1200@59.973" "ipv6.disable=1" %default-kernel-arguments)
+  (cons* "video=3440x1440@50" %default-kernel-arguments))
  (locale "fr_FR.utf8")
  (timezone "Europe/Paris")
  (keyboard-layout (keyboard-layout "us" "intl"))
