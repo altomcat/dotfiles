@@ -111,6 +111,9 @@ input * {
 
 # Applications
 
+# Launch redshift
+exec redshift -l 49.0:1.2 -m wayland
+
 # Launch mpd server
 exec mpd
 
@@ -120,10 +123,13 @@ exec virt-manager
 #exec alacritty
 exec emacs --daemon -u $USER
 
+# bluetooth
+exec blueman-applet
+
 # automount USB drives
 exec udiskie --tray
 
-#exec nm-applet
+# Network manager
 exec_always nm-applet --indicator
 
 # No tite bars
