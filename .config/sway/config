@@ -336,6 +336,13 @@ bindsym $mod+Ctrl+f exec thunar
 # Swappy for printscreen
 bindsym --release Print exec grim -g "$(slurp)" - | swappy -f -
 
+# Mute sound from keyboard
+bindsym XF86AudioMute exec pactl set-sink-mute $(pactl get-default-sink) toggle
+
+# Increase / decrease volume from keynoard
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume $(pactl get-default-sink) -3db
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $(pactl get-default-sink) +3db
+
 #
 # Status Bar:
 #
