@@ -209,7 +209,7 @@ label:focus {
 }
 
 #tray {
-    background-color: #2980b9;
+    background-color: #64727D;
 }
 
 #tray > .passive {
@@ -281,4 +281,5 @@ label:focus {
 
 #custom-notification {
     font-family: "FontAwesome";
+    background-color: #64727D;
 }
