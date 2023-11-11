@@ -152,7 +152,9 @@
                    '(("youtube-dl" . "yt-dlp")))
 		  (bashrc (list (local-file
 				 "/home/altomcat/guix-config/.bashrc"
-				 "bashrc"))) 
+				 "bashrc")
+				(mixed-text-file "neofetch"
+						 "$(command -v neofetch && neofetch)"))) 
 		  (bash-profile (list (local-file
 				       "/home/altomcat/guix-config/.bash_profile"
 				       "bash_profile")))
