@@ -52,7 +52,9 @@
      "xeyes" ;; to find Xwayland apps
      "mpv"
      "colord"
-
+     "gnuplot"
+     "calibre"
+     
      ;; utils
      "lsof"
      "ntfs-3g"
@@ -60,6 +62,7 @@
      "radeon-firmware"
      "brightnessctl"
      "broadcom-bt-firmware"
+     "recutils"
      
      ;; dev
      "git"
