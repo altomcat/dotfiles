@@ -23,7 +23,7 @@
  ;; Home profile, under ~/.guix-home/profile.
  (packages
   (specifications->packages
-   (append 
+   (append
     (list
      ;; fonts
      "font-iosevka-comfy"
@@ -54,7 +54,7 @@
      "colord"
      "gnuplot"
      "calibre"
-     
+
      ;; utils
      "lsof"
      "ntfs-3g"
@@ -63,7 +63,7 @@
      "brightnessctl"
      "broadcom-bt-firmware"
      "recutils"
-     
+
      ;; dev
      "git"
      "automake"
@@ -74,7 +74,7 @@
      "python"
      "shellcheck"
      "fish"
-     
+
      ;; webrowser
      "ungoogled-chromium-wayland"
      "icecat"
@@ -92,7 +92,7 @@
      "bridge-utils"
      "dconf" ;; store connections for virt-manager
      "qemu"
-     
+
      "gnome-tweaks"
      "gnome-themes-extra"
      "volumeicon"
@@ -106,9 +106,9 @@
      ;; misceallenous apps
      "gnome-bluetooth"
      "adwaita-icon-theme"
-     "guile-ac-d-bus"    
+     "guile-ac-d-bus"
      "xdot"
-     "peek"				; screencast    
+     "peek"				; screencast
      "graphviz"
      "sxiv"
      "gnome-shell-extensions"
@@ -119,10 +119,10 @@
      "xwininfo"
      "setxkbmap"
      "xmodmap"
-     
+
      ;; locales
      "glibc-locales"
-     
+
      ;; libraries
      "ffmpeg"
      "libpng"
@@ -140,8 +140,7 @@
      "cmatrix"
      "neofetch"
      "htop"
-     "btop"
-     "neofetch")
+     "btop")
     %my-sway-pkgs
     %my-emacs-pkgs)))
 
@@ -157,7 +156,7 @@
 				 "/home/altomcat/guix-config/.bashrc"
 				 "bashrc")
 				(mixed-text-file "neofetch"
-						 "$(command -v neofetch && neofetch)"))) 
+						 "$(command -v neofetch && neofetch)")))
 		  (bash-profile (list (local-file
 				       "/home/altomcat/guix-config/.bash_profile"
 				       "bash_profile")))
@@ -165,7 +164,7 @@
 					   ("ALTERNATE_EDITOR" . "")
 					   ("EDITOR" . "emacsclient -t")
 					   ("VISUAL" . "emacsclient -c -a emacs")))))
-	
+
 	;; (service home-redshift-service-type
 	;; 	 (home-redshift-configuration
 	;;           (location-provider 'manual)

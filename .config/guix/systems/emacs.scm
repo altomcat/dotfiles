@@ -105,4 +105,5 @@
    "emacs-mpv"
    "emacs-aio"
    "emacs-font-lock+"
+   "emacs-ox-haunt"
    "tree-sitter"))
