@@ -24,13 +24,13 @@
 										(vpn-plugins (list network-manager-openvpn))))
                    ;; (dbus config => (dbus-root-service-type
 		   ;; 		    (services (list blueman))))
-                   (sysctl-service-type config =>
-					(sysctl-configuration
-					 (settings (append '(("net.ipv6.conf.enp0s25.disable_ipv6" . "1")
-							     ("net.ipv6.conf.enp3s0.disable_ipv6" . "1")
-							     ("net.ipv6.conf.all.disable_ipv6" . "1")
-							     ("net.ipv6.conf.default.disable_ipv6" . "1"))
-							   %default-sysctl-settings))))
+                   ;; (sysctl-service-type config =>
+		   ;; 			(sysctl-configuration
+		   ;; 			 (settings (append '(("net.ipv6.conf.enp0s25.disable_ipv6" . "1")
+		   ;; 					     ("net.ipv6.conf.enp3s0.disable_ipv6" . "1")
+		   ;; 					     ("net.ipv6.conf.all.disable_ipv6" . "1")
+		   ;; 					     ("net.ipv6.conf.default.disable_ipv6" . "1"))
+		   ;; 					   %default-sysctl-settings))))
 		   ))
 (operating-system
  ;; Use non-free Linux and firmware
@@ -41,7 +41,6 @@
 		  linux-firmware
   		  %base-firmware))
  (kernel-arguments
-  ;; (cons "video=1920x1200@59.973" "ipv6.disable=1" %default-kernel-arguments)
   (cons* "video=3440x1440@50" %default-kernel-arguments))
  (locale "fr_FR.utf8")
  (timezone "Europe/Paris")
@@ -51,7 +50,6 @@
  (locale-definitions  (list (locale-definition
 			     (name "en_US.utf8")
 			     (source "en_US"))
-
 			    (locale-definition
 			     (name "fr_FR.utf8")
 			     (source "fr_FR"))))
@@ -109,8 +107,7 @@
     (service sddm-service-type
 	     (sddm-configuration
 	      (theme "chili")
-	      (display-server "wayland")
-	      (remember-last-user? #t)
+              (remember-last-user? #t)
 	      ))
     (service libvirt-service-type
 	     (libvirt-configuration
