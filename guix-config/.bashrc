@@ -26,6 +26,10 @@ then
 else
     PS1='\u@\h \w\$ '
 fi
+
 alias ls='ls -p --color=auto'
 alias ll='ls -l'
 alias grep='grep --color=auto'
+# fix rendering bugs with github and other websites
+alias qutebrowser='QTWEBENGINE_CHROMIUM_FLAGS="--disable-seccomp-filter-sandbox" qutebrowser'
+alias qemu="qemu-system-x86_64 -enable-kvm -m 512"

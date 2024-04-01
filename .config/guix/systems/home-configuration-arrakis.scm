@@ -9,13 +9,13 @@
              (gnu home services ssh)
              (gnu home services desktop)
 	     (gnu home services shepherd)
+             (gnu home services sound)
              (gnu packages)
 	     (gnu packages xdisorg)
              (gnu services)
-             (guix gexp)
-             (gnu home services shells))
+             (guix gexp))
 
-(load "emacs.scm")
+	     (load "emacs.scm")
 (load "sway.scm")
 
 (home-environment
@@ -75,6 +75,12 @@
      "shellcheck"
      "fish"
 
+     ;; guile library
+     "guile-ac-d-bus"
+     ;;"guile-hoot"
+     ;;"guile-gi"
+     "guile-chickadee"
+     
      ;; webrowser
      "ungoogled-chromium-wayland"
      "icecat"
@@ -106,7 +112,6 @@
      ;; misceallenous apps
      "gnome-bluetooth"
      "adwaita-icon-theme"
-     "guile-ac-d-bus"
      "xdot"
      "peek"				; screencast
      "graphviz"
@@ -149,22 +154,23 @@
  (services
   (list (service home-bash-service-type
                  (home-bash-configuration
-                  (guix-defaults? #f)
-		  (aliases
-                   '(("youtube-dl" . "yt-dlp")))
+                  (guix-defaults? #f)                  
 		  (bashrc (list (local-file
 				 "/home/altomcat/guix-config/.bashrc"
 				 "bashrc")
-				(mixed-text-file "neofetch"
-						 "$(command -v neofetch && neofetch)")))
+				(mixed-text-file "neofetch" "$(command -v neofetch && neofetch)")))
 		  (bash-profile (list (local-file
 				       "/home/altomcat/guix-config/.bash_profile"
 				       "bash_profile")))
 		  (environment-variables '(("PS1" . "\\u \\wλ ")
 					   ("ALTERNATE_EDITOR" . "")
 					   ("EDITOR" . "emacsclient -t")
-					   ("VISUAL" . "emacsclient -c -a emacs")))))
+					   ("VISUAL" . "emacsclient -c -a emacs")))
+		  (aliases
+                   '(("youtube-dl" . "yt-dlp")))))
 
+	(service home-dbus-service-type)
+	(service home-pipewire-service-type)
 	;; (service home-redshift-service-type
 	;; 	 (home-redshift-configuration
 	;;           (location-provider 'manual)
