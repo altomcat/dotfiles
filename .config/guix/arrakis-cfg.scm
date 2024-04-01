@@ -36,8 +36,7 @@
  ;; Use non-free Linux and firmware
  (kernel linux)
  (initrd microcode-initrd)
- (firmware (cons* radeon-firmware
-		  broadcom-bt-firmware
+ (firmware (cons* broadcom-bt-firmware
 		  linux-firmware
   		  %base-firmware))
  (kernel-arguments
