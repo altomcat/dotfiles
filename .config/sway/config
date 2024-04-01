@@ -50,10 +50,10 @@ output * bg $(find $wallpapers_path -type f | shuf -n 1) fill
 #   scale 1
 # }
 
-# output HDMI-A-1 {
-#   mode 3440x1440@50hz
-#   scale 1
-# }
+output HDMI-A-1 {
+   mode 3440x1440@50hz
+   scale 1
+}
 
 output HDMI-A-2 {
   mode 3440x1440@50hz
@@ -61,6 +61,11 @@ output HDMI-A-2 {
 }
 
 output HDMI-A-3 {
+  mode 3440x1440@50hz
+  scale 1
+}
+
+output HDMI-A-4 {
   mode 3440x1440@50hz
   scale 1
 }
@@ -348,6 +353,9 @@ bindsym XF86AudioMute exec pactl set-sink-mute $(pactl get-default-sink) toggle
 # Increase / decrease volume from keynoard
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume $(pactl get-default-sink) -3db
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $(pactl get-default-sink) +3db
+
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioNext exec mpc next
 
 #
 # Status Bar:
