@@ -209,7 +209,7 @@ label:focus {
 }
 
 #tray {
-    background-color: #2980b9;
+    background-color: #64727D;
 }
 
 #tray > .passive {
@@ -277,4 +277,9 @@ label:focus {
 
 #scratchpad.empty {
 	background-color: transparent;
+}
+
+#custom-notification {
+    font-family: "FontAwesome";
+    background-color: #64727D;
 }
