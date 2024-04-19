@@ -171,10 +171,11 @@
 
 	(service home-dbus-service-type)
 	(service home-pipewire-service-type)
-	;; (service home-redshift-service-type
-	;; 	 (home-redshift-configuration
-	;;           (location-provider 'manual)
-	;; 	  (adjustment-method 'wayland)
-	;; 	  (latitude 49.0)
-	;; 	  (longitude 1.2)))
+	(service home-redshift-service-type
+		 (home-redshift-configuration
+		  (redshift redshift-wayland)
+	          (adjustment-method 'wayland)
+		  (location-provider 'manual)
+		  (latitude 49.0)
+		  (longitude 1.2)))
 	)))
