@@ -8,6 +8,7 @@
              (gnu packages admin)
              (gnu packages glib)
              (gnu packages bash)
+	     (gnu packages xdisorg)
              (guix gexp))
 
 (define %sway-launcher-service
@@ -216,7 +217,9 @@ export VISUAL=\"emacsclient -c -a emacs\"
  (services (list
             (service home-redshift-service-type
                      (home-redshift-configuration
-                      (location-provider 'manual)
+		      (redshift redshift-wayland)
+		      (adjustment-method 'wayland)
+		      (location-provider 'manual)
                       (latitude 49.0)
                       (longitude 1.2)))
 
