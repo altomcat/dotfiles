@@ -22,9 +22,21 @@
 		   (network-manager-service-type config =>
 						 (network-manager-configuration (inherit config)
 										(vpn-plugins (list network-manager-openvpn))))
-                   ;; (dbus config => (dbus-root-service-type
+		   ;; Authorize substitute from nonguix channel
+		   (guix-service-type config => (guix-configuration
+						 (inherit config)
+						 (substitute-urls
+						  (append (list "https://substitutes.nonguix.org")
+							  %default-substitute-urls))
+						 (authorized-keys
+						  (append (list (plain-file "non-guix.pub"
+									    "(public-key (ecc \n
+                                                                                  (curve Ed25519)\n
+                                                                                  (q #C1FD53E5D4CE971933EC50C9F307AE2171A2D3B52C804642A7A35F84F3A4EA98#)))\n"))
+							  %default-authorized-guix-keys))))
+		   ;; (dbus config => (dbus-root-service-type
 		   ;; 		    (services (list blueman))))
-                   ;; (sysctl-service-type config =>
+		   ;; (sysctl-service-type config =>
 		   ;; 			(sysctl-configuration
 		   ;; 			 (settings (append '(("net.ipv6.conf.enp0s25.disable_ipv6" . "1")
 		   ;; 					     ("net.ipv6.conf.enp3s0.disable_ipv6" . "1")
@@ -54,11 +66,11 @@
 			     (source "fr_FR"))))
 
  (users (cons* (user-account
-                (name "altomcat")
-                (comment "Arnaud Lechevallier")
-                (group "users")
-                (home-directory "/home/altomcat")
-                (supplementary-groups
+		(name "altomcat")
+		(comment "Arnaud Lechevallier")
+		(group "users")
+		(home-directory "/home/altomcat")
+		(supplementary-groups
                  '("wheel"
 		   "netdev"
                    "kvm"       ;;  from DW config
@@ -93,7 +105,7 @@
           "udiskie"
 	  "xftwidth"
 	  "chili-sddm-theme"
-	  "nss-certs"))
+	  ))
    %base-packages))
 
  ;;(kernel-loadable-modules (list wireguard-linux-compat))
