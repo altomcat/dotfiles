@@ -13,7 +13,6 @@
 (use-service-modules linux dbus cups virtualization docker desktop networking ssh spice xorg)
 (use-package-modules gnome emacs vpn virtualization cups spice wm)
 
-
 (define %my-desktop-services
   (modify-services %desktop-services
 		   (delete gdm-service-type)
@@ -86,25 +85,17 @@
  (packages
   (append
    (map specification->package
-	'("git"
+	'(
 	  "sway"
-	  "swaylock"
-	  "swayhide"
-	  "waybar"
-	  "wlr-randr"
-	  "ntfs-3g"
+          "ntfs-3g"
 	  "exfat-utils"
 	  "fuse-exfat"
           "xterm"
-	  "bluez"
-	  "bluez-alsa"
-	  "pulseaudio"
+          "pulseaudio"
 	  "gvfs"
 	  "tlp"
 	  "wireguard-tools"
-          "udiskie"
-	  "xftwidth"
-	  "chili-sddm-theme"
+          "chili-sddm-theme"
 	  ))
    %base-packages))
 
