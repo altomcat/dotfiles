@@ -22,6 +22,7 @@
    "emacs-expand-region"
    "emacs-emojify"
    "emacs-elfeed"
+   "emacs-envrc"
    "emacs-ef-themes"
    "emacs-eglot-jl"
    "emacs-doom-themes"

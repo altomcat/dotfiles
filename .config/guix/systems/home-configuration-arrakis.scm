@@ -15,8 +15,14 @@
              (gnu services)
              (guix gexp))
 
-	     (load "emacs.scm")
+(load "emacs.scm")
 (load "sway.scm")
+(load "fonts.scm")
+(load "virtualization.scm")
+(load "dev.scm")
+(load "apps.scm")
+(load "tools.scm")
+(load "gnome.scm")
 
 (home-environment
  ;; Below is the list of packages that will show up in your
@@ -25,136 +31,32 @@
   (specifications->packages
    (append
     (list
-     ;; fonts
-     "font-iosevka-comfy"
-     "font-openmoji"
-     "font-awesome"
-     "unicode-emoji"
-     "font-google-noto-emoji"
-
-     ;; useful tools
-     "aspell"
-     "aspell-dict-en"
-     "aspell-dict-fr"
-     "ripgrep"
-     "unzip"
-     "p7zip"
-     "curl"
-     "tree"
-     "gnupg"
-     "pinentry"
-     "pinentry-emacs"
-     "fd"
-     "file"
-     "rmlint"				; remove duplicates
-     "yt-dlp"
-     "xdg-utils" ;; for xdg-open
-     "xeyes" ;; to find Xwayland apps
-     "mpv"
-     "colord"
-     "gnuplot"
-     "calibre"
-
-     ;; utils
-     "lsof"
-     "ntfs-3g"
-     "pasystray"
-     "radeon-firmware"
-     "brightnessctl"
-     "broadcom-bt-firmware"
-     "recutils"
-
-     ;; dev
-     "git"
-     "automake"
-     "autoconf"
-     "gcc-toolchain@12"
-     "rust"
-     "cmake"
-     "python"
-     "shellcheck"
-     "fish"
-
-     ;; guile library
-     "guile-ac-d-bus"
-     ;;"guile-hoot"
-     ;;"guile-gi"
-     "guile-chickadee"
+     ;; locales
+     "glibc-locales"
      
-     ;; webrowser
-     "ungoogled-chromium-wayland"
-     "icecat"
-
      ;; themes
      "hicolor-icon-theme"
      "adwaita-icon-theme" ;; for virt-manager icons
      "matcha-theme"
      "papirus-icon-theme"
+     )
 
-     ;; Virtualization
-     "virt-manager"
-     "libvirt"
-     "python-libvirt"
-     "bridge-utils"
-     "dconf" ;; store connections for virt-manager
-     "qemu"
-
-     "gnome-tweaks"
-     "gnome-themes-extra"
-     "volumeicon"
-     "mpv"
-     "pavucontrol"
-
-     ;; torrent
-     "transmission"
-     "transmission-remote-gtk"
-
-     ;; misceallenous apps
-     "gnome-bluetooth"
-     "adwaita-icon-theme"
-     "xdot"
-     "peek"				; screencast
-     "graphviz"
-     "sxiv"
-     "gnome-shell-extensions"
-     "scrot"
-     "xftwidth"
-     "xsetroot"
-     "xhost"
-     "xwininfo"
-     "setxkbmap"
-     "xmodmap"
-
-     ;; locales
-     "glibc-locales"
-
-     ;; libraries
-     "ffmpeg"
-     "libpng"
-     "zstd"
-     "gtk+:bin"
-     "gtk+"
-
-     ;; mpd server/client
-     "mpd"
-     "mpd-mpc" ;; mpc used by ncmpcpp to send notification
-     "ncmpcpp"
-     "cli-visualizer" ;; aka vis
-
-     ;; ASCII's art stuff
-     "cmatrix"
-     "neofetch"
-     "htop"
-     "btop")
+    %my-fonts-pkgs
+    %my-virtualization-pkgs
     %my-sway-pkgs
-    %my-emacs-pkgs)))
+    %my-emacs-pkgs
+    %my-dev-pkgs
+    %my-apps-pkgs
+    %my-tools-pkgs
+    %my-gnome-pkgs
+    )))
 
  ;; Below Is the list of Home services.  To search for available
  ;; services, run 'guix home search KEYWORD' in a terminal.
  (services
   (list (service home-bash-service-type
                  (home-bash-configuration
-                  (guix-defaults? #f)                  
+                  (guix-defaults? #f)
 		  (bashrc (list (local-file
 				 "/home/altomcat/guix-config/.bashrc"
 				 "bashrc")
