@@ -2,7 +2,7 @@
 visualizer.fps=20
 
 #Defaults to "/tmp/mpd.fifo"
-mpd.fifo.path
+mpd.fifo.path=/home/altomcat/.config/mpd/mpd.fifo
 
 #If set to false the visualizers will use mono mode instead of stereo. Some visualizers will
 #behave differently when mono is enabled. For example, spectrum show two sets of bars.
@@ -59,12 +59,12 @@ visualizer.spectrum.reversed=false
 
 #Sets the audio sources to use. Currently available ones are "mpd" and "alsa"Sets the audio sources to use.
 #Currently available ones are "mpd", "pulse", "port", and "alsa". Defaults to "mpd".
-audio.sources=pulse
+audio.sources=mpd
 
 ##vis tries to find the correct pulseaudio sink, however this will not work on all systems.
 #If pulse audio is not working with vis try switching the audio source. A list can be found by running the
 #command pacmd list-sinks  | grep -e 'name:'  -e 'index'
-audio.pulse.source=0
+#audio.pulse.source=0
 
 #vis tries to find the correct portaudio device (through portaudio default method), however its not for-sure.
 #If port audio is not working with vis try switching the audio srouce. A list can be found by setting
