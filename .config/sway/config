@@ -31,7 +31,7 @@ font pango: iosevka-comfy medium 10
 # Default wallpaper (more resolutions are available in /gnu/store/gs5gylnlpinkd4gmidaqzlyma96832ki-sway-1.6.1/share/backgrounds/sway/)
 # randomly displayed
 set $wallpapers_path $HOME/.config/wallpapers
-output * bg $(find $wallpapers_path -type f | shuf -n 1) fill
+output * bg $(find -L $wallpapers_path -type f | shuf -n 1) fill
 
 #
 # Example configuration:
