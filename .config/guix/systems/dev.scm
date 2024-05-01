@@ -1,4 +1,4 @@
-(define %my-dev-packages
+(define %my-dev-pkgs
   (list
    "git"
    "automake"
