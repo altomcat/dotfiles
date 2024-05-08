@@ -58,23 +58,30 @@
                  (home-bash-configuration
                   (guix-defaults? #f)
 		  (bashrc (list (local-file
-				 "/home/a066501/guix-config/.bashrc-ROSie"
+                                 ;; "/home/a066501/guix-config/.bashrc-ROSie"
+				 "ROSie/.bashrc-ROSie"
 				 "bashrc")
+				(mixed-text-file "direnv"
+						 "(command -v direnv > /dev/null) && eval \"$(direnv hook bash)\"")
 				(mixed-text-file "neofetch"
 						 "$(command -v neofetch && neofetch)")))
 		  (bash-profile (list (local-file
-				       "/home/a066501/guix-config/.bash_profile"
+                                       ;; "/home/a066501/guix-config/.bash_profile"
+				       "ROSie/.bash_profile-ROSie"
 				       "bash_profile")))
 		  (environment-variables '(("PS1" . "\\u \\wλ ")
 					   ("ALTERNATE_EDITOR" . "")
 					   ("EDITOR" . "emacsclient -t")
 					   ("VISUAL" . "emacsclient -c -a emacs")))
 		  (aliases
-                   '(("youtube-dl" . "yt-dlp")))))
+                   '(("youtube-dl" . "yt-dlp")
+		     ("guix-home-reconfigure" . "guix home reconfigure ~/.dotfiles/.config/guix/systems/home-configuration-ROSie.scm --substitute-urls='https://ci.guix.gnu.org https://bordeaux.guix.gnu.org https://substitutes.nonguix.org'")))))
 	;; The destination file id defined with the first path that is relative to XDG_CONFIG_DIR
 	;; The source file to be copied is stored at the level of the home configuration file.
 	(service home-xdg-configuration-files-service-type
-		 `(("sway/config" ,(local-file "ROSie/sway/config"))))
+		 `(("sway/config" ,(local-file "ROSie/sway/config"))
+		   ("waybar/config" ,(local-file "ROSie/waybar/config"))
+		   ("waybar/style.css" ,(local-file "ROSie/waybar/style.css"))))
 	(service home-dbus-service-type)
 	;; (service home-pipewire-service-type)
 	;; (service home-redshift-service-type
