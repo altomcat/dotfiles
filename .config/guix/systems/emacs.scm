@@ -2,6 +2,7 @@
 (define %my-emacs-pkgs
   (list
    ;; emacs
+   "emacs-arei"				;; use with guile-ares-rs
    "emacs-pgtk"
    "emacs-substitute"
    "emacs-js2-mode"
