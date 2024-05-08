@@ -10,8 +10,8 @@ iso: $(file)
 usb_stick: iso
 	sudo dd if=$(iso_file) of=/dev/sdb status=progress bs=4M oflag=sync
 
-vm: iso
-	$(guix system vm caladane.scm --full-boot) -m 1024 -smp 2 -nic user,model=virtio-net-pci
+vm:
+	$(guix system vm caladan.scm --full-boot) -m 1024 -smp 2 -nic user,model=virtio-net-pci
 
 # env:
 # 	guix time-machine -C $(GUIX_CONFIG_PATH)/channels.scm -- environment make
