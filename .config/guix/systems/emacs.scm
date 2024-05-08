@@ -113,4 +113,5 @@
    "emacs-font-lock+"
    "emacs-ox-haunt"
    "emacs-langtool"
-   "tree-sitter"))
+   ;;"tree-sitter"  ; useless because of internal treesit
+   ))
