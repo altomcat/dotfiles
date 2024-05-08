@@ -7,6 +7,7 @@
    "rust"
    "cmake"
    "python"
+   "direnv"
    "shellcheck"
    
    ;; guile library
