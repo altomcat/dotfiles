@@ -84,7 +84,7 @@
  ;; (keyboard-layout (keyboard-layout "us" "intl"))
  ;; (keyboard-layout "fr,latin9" #:options '("grp:alt_shift_toggle"))
  
- (host-name "caladane")
+ (host-name "caladan")
 
  ;; plugdev group, udev support for hardware key
  (groups (cons
