@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ $# -ne 2 ];
+then
+    echo "create_usb_stick  image-disk output-device"
+    exit 1;
+fi
+
+sudo dd if=$1 of=$2 bs=4M status=progress oflag=sync
