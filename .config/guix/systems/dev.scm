@@ -1,4 +1,4 @@
-(define %my-dev-packages
+(define %my-dev-pkgs
   (list
    "git"
    "automake"
@@ -7,10 +7,12 @@
    "rust"
    "cmake"
    "python"
+   "direnv"
    "shellcheck"
    
    ;; guile library
    "guile-ac-d-bus"
+   "guile-ares-rs"
    ;;"guile-hoot"
    ;;"guile-gi"
    "guile-chickadee"

@@ -2,6 +2,7 @@
 (define %my-emacs-pkgs
   (list
    ;; emacs
+   "emacs-arei"				;; use with guile-ares-rs
    "emacs-pgtk"
    "emacs-substitute"
    "emacs-js2-mode"
@@ -113,4 +114,5 @@
    "emacs-font-lock+"
    "emacs-ox-haunt"
    "emacs-langtool"
-   "tree-sitter"))
+   ;;"tree-sitter"  ; useless because of internal treesit
+   ))

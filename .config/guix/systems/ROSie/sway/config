@@ -50,25 +50,25 @@ output * bg $(find -L $wallpapers_path -type f | shuf -n 1) fill
 #   scale 1
 # }
 
-output HDMI-A-1 {
-   mode 3440x1440@50hz
-   scale 1
-}
+# output HDMI-A-1 {
+#    mode 3440x1440@50hz
+#    scale 1
+# }
 
-output HDMI-A-2 {
-  mode 3440x1440@50hz
-  scale 1
-}
+# output HDMI-A-2 {
+#   mode 3440x1440@50hz
+#   scale 1
+# }
 
-output HDMI-A-3 {
-  mode 3440x1440@50hz
-  scale 1
-}
+# output HDMI-A-3 {
+#   mode 3440x1440@50hz
+#   scale 1
+# }
 
-output HDMI-A-4 {
-  mode 3440x1440@50hz
-  scale 1
-}
+# output HDMI-A-4 {
+#   mode 3440x1440@50hz
+#   scale 1
+# }
 
 #
 # sway notification center
@@ -80,10 +80,10 @@ exec swaync
 #
 # Example configuration:
 #
-exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#          before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -109,8 +109,10 @@ input type:mouse {
 
 # setup the keyboard layout
 input * {
-        xkb_layout "us"
-        xkb_variant "intl"
+        #xkb_layout "us"
+	xkb_layout "fr"
+        #xkb_variant "intl"
+        xkb_variant "latin9"
 }
 
 
@@ -120,21 +122,21 @@ input * {
 exec redshift -l 49.0:1.2 -m wayland
 
 # Launch mpd server
-exec mpd
+#exec mpd
 
 # Launch VM manager
 exec virt-manager
 
-#exec alacritty
+exec alacritty
 exec emacs --daemon -u $USER
 
-# bluetooth
-exec blueman-applet
+# # bluetooth
+# exec blueman-applet
 
-# automount USB drives
+# # automount USB drives
 exec udiskie --tray
 
-# Network manager
+# # Network manager
 exec_always nm-applet --indicator
 
 # No tite bars
@@ -376,4 +378,4 @@ bar {
     # }
 }
 
-include /gnu/store/gs5gylnlpinkd4gmidaqzlyma96832ki-sway-1.6.1/etc/sway/config.d/*
+#include /gnu/store/gs5gylnlpinkd4gmidaqzlyma96832ki-sway-1.6.1/etc/sway/config.d/*
