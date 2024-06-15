@@ -3,6 +3,7 @@
   (list
    ;; emacs
    "emacs-arei"				;; use with guile-ares-rs
+   "emacs-eat"
    "emacs-pgtk"
    "emacs-substitute"
    "emacs-js2-mode"
