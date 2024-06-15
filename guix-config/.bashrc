@@ -33,3 +33,17 @@ alias grep='grep --color=auto'
 # fix rendering bugs with github and other websites
 alias qutebrowser='QTWEBENGINE_CHROMIUM_FLAGS="--disable-seccomp-filter-sandbox" qutebrowser'
 alias qemu="qemu-system-x86_64 -enable-kvm -m 512"
+
+export EDITOR="emacsclient -t"
+export VISUAL="emacsclient -c -a emacs"
+
+if [[ "$HOSTNAME" == "argiope"  &&  "$(tty)" == "/dev/tty1" ]]
+then
+    # source ~/.bash_profile
+    echo "!!DONE!!"
+    # if [ -f ~/.bash_profile ]; then . ~/.bash_profile; fi
+    dbus-run-session sway
+    # not working under TTY
+    # wlr-randr --output HDMI-A-2 --mode 1920x1200@49.998
+fi
+
