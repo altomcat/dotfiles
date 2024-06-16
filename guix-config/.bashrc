@@ -17,7 +17,7 @@ then
 fi
 
 # Source the system-wide file.
-source /etc/bashrc
+[ -f /etc/bashrc ] && source /etc/bashrc
 
 # Adjust the prompt depending on whether we're in 'guix environment'.
 if [ -n "$GUIX_ENVIRONMENT" ]
@@ -39,11 +39,6 @@ export VISUAL="emacsclient -c -a emacs"
 
 if [[ "$HOSTNAME" == "argiope"  &&  "$(tty)" == "/dev/tty1" ]]
 then
-    # source ~/.bash_profile
-    echo "!!DONE!!"
-    # if [ -f ~/.bash_profile ]; then . ~/.bash_profile; fi
     dbus-run-session sway
-    # not working under TTY
-    # wlr-randr --output HDMI-A-2 --mode 1920x1200@49.998
 fi
 

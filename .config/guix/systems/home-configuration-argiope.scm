@@ -87,10 +87,13 @@
 		  (bash-profile (list (local-file
 				       "/home/li3n/guix-config/.bash_profile"
 				       "bash_profile")))
-		  (environment-variables '(("PS1" . "\\u \\wλ ")
-					   ("ALTERNATE_EDITOR" . "")
+		  ;; environment variables are written in .bash_profile
+		  (environment-variables '(("ALTERNATE_EDITOR" . "")
 					   ("EDITOR" . "emacsclient -t")
-					   ("VISUAL" . "emacsclient -c -a emacs")))
+					   ("VISUAL" . "emacsclient -c -a emacs")
+					   ;; ("PS1" . "\\u \\wλ ")
+					   ))
+		  ;; aliases are written in .bashrc
 		  (aliases
 		   '(("youtube-dl" . "yt-dlp")))))
 
