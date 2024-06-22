@@ -17,7 +17,7 @@ then
 fi
 
 # Source the system-wide file.
-source /etc/bashrc
+[ -f /etc/bashrc ] && source /etc/bashrc
 
 # Adjust the prompt depending on whether we're in 'guix environment'.
 if [ -n "$GUIX_ENVIRONMENT" ]
@@ -33,3 +33,12 @@ alias grep='grep --color=auto'
 # fix rendering bugs with github and other websites
 alias qutebrowser='QTWEBENGINE_CHROMIUM_FLAGS="--disable-seccomp-filter-sandbox" qutebrowser'
 alias qemu="qemu-system-x86_64 -enable-kvm -m 512"
+
+export EDITOR="emacsclient -t"
+export VISUAL="emacsclient -c -a emacs"
+
+if [[ "$HOSTNAME" == "argiope"  &&  "$(tty)" == "/dev/tty1" ]]
+then
+    dbus-run-session sway
+fi
+
