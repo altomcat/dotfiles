@@ -13,7 +13,7 @@
    ;; guile library
    "guile-ac-d-bus"
    "guile-ares-rs"
-   ;;"guile-hoot"
+   "guile-hoot"
    ;;"guile-gi"
    "guile-chickadee"
 

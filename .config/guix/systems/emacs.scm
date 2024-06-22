@@ -24,6 +24,7 @@
    "emacs-emojify"
    "emacs-elfeed"
    "emacs-envrc"
+   "emacs-eat"
    "emacs-ef-themes"
    "emacs-eglot-jl"
    "emacs-doom-themes"
