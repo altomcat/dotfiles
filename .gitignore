@@ -1,2 +1,5 @@
 /.config/picom.alt.conf
 /.config/picom.conf.bak
+*.log
+/.config/mpd/database
+/.config/mpd/playlists/
