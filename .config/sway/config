@@ -341,8 +341,15 @@ assign [app_id="virt-manager"] workspace 6
 
 # bindsym $mod+Shift+b exec chromium
 bindsym $mod+Ctrl+b exec chromium
+
 # bindsym $mod+Shift+f exec thunar
 bindsym $mod+Ctrl+f exec thunar
+
+# Grimshot for Screenshots
+bindsym $mod+p       exec grimshot save active
+bindsym $mod+Shift+p exec grimshot copy area
+bindsym $mod+Mod1+p  exec grimshot copy output
+bindsym $mod+Ctrl+p  exec grimshot copy window
 
 # Swappy for printscreen
 bindsym --release Print exec grim -g "$(slurp)" - | swappy -f -
