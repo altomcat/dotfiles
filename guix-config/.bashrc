@@ -27,6 +27,9 @@ else
     PS1='\u@\h \w\$ '
 fi
 
+# Activate direnv
+(command -v direnv) > /dev/null && eval "$(direnv hook bash)"
+
 alias ls='ls -p --color=auto'
 alias ll='ls -l'
 alias grep='grep --color=auto'
