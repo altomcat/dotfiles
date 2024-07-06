@@ -5,6 +5,7 @@
 ;; See the "Replicating Guix" section in the manual.
 
 (use-modules (gnu home)
+	     (gnu home services)
 	     (gnu home services shells)
              (gnu home services ssh)
              (gnu home services desktop)
@@ -60,7 +61,9 @@
 		  (bashrc (list (local-file
 				 "/home/altomcat/guix-config/.bashrc"
 				 "bashrc")
-				(mixed-text-file "neofetch" "$(command -v neofetch && neofetch)")))
+				;; (mixed-text-file "direnv"
+				;; 		 "$(command -v direnv > /dev/null) && eval $(direnv hook bash)")
+				(mixed-text-file "fastfetch" "$(command -v fastfetch && fastfetch)")))
 		  (bash-profile (list (local-file
 				       "/home/altomcat/guix-config/.bash_profile"
 				       "bash_profile")))
@@ -70,7 +73,6 @@
 					   ("VISUAL" . "emacsclient -c -a emacs")))
 		  (aliases
                    '(("youtube-dl" . "yt-dlp")))))
-
 	(service home-dbus-service-type)
 	(service home-pipewire-service-type)
 	(service home-redshift-service-type

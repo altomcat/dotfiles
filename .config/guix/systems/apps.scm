@@ -29,7 +29,8 @@
 
    ;; ASCII's art stuff
    "cmatrix"
-   "neofetch"
+   ;;"neofetch"
+   "fastfetch"
    "htop"
    "btop"
 
