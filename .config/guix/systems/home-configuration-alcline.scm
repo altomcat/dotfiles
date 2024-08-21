@@ -44,16 +44,13 @@
      "openssh"
      "fastfetch"
      "nss-certs"
-     "emacs-notmuch"
-     "emacs-consult-notmuch"
      "notmuch"
      
      ;; themes
      "hicolor-icon-theme"
      "adwaita-icon-theme" ;; for virt-manager icons
      "matcha-theme"
-     "papirus-icon-theme"
-     )
+     "papirus-icon-theme")
 
     %my-fonts-pkgs
     ;; %my-virtualization-pkgs
@@ -77,4 +74,11 @@
 		  (bash-profile (list (local-file
 				       "/home/a066501/.dotfiles/.config/guix/systems/alcline/.bash_profile-alcline"
 				       "bash_profile")))
-		  )))))
+		  ))
+	(service home-mcron-service-type
+		 (home-mcron-configuration
+		  (jobs (list
+			 #~(job
+			    '(next-minute (range 0 60 5))
+			    (string-append #$isync "/bin/mbsync all")
+			    ))))))))

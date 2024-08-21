@@ -1,0 +1,7 @@
+#!/usr/bin/env -S bash
+# Remove the new tag from messages that are still tagged as new
+# notmuch tag -new tag:new
+
+# Sync mail messages
+#mbsync --verbose all
+mbsync all

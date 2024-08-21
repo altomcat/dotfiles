@@ -3,3 +3,4 @@
 *.log
 /.config/mpd/database
 /.config/mpd/playlists/
+*.*~

@@ -1,0 +1,7 @@
+#!/usr/bin/env -S bash
+# Remove the new tag from messages that are still tagged as new
+
+notmuch tag +free -- tag:new and to:arnaud.lechevallier@free.fr
+notmuch tag +gmail -- tag:new and to:altomcat.sct1@gmail.com
+notmuch tag +orange -- tag:new and to:arnaud-lechevallier@wanadoo.fr
+notmuch tag +orange -- tag:new and to:arnaud.lechevallier@orange.fr

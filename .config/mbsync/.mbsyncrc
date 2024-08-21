@@ -1,0 +1,110 @@
+# mbsyncrc configuration file
+
+Create Near
+Expunge None
+CopyArrivalDate yes
+SyncState *
+
+IMAPAccount freefr
+Host imap.free.fr
+User arnaud.lechevallier@free.fr
+PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.credentials/.free-credentials.gpg"
+SSLType IMAPS
+Port 993
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore freefr-remote
+Account freefr
+
+# Local Store for Free.fr
+MaildirStore freefr-local
+Path ~/Mail/freefr/
+Inbox ~/Mail/freefr/Inbox
+SubFolders Verbatim
+
+Channel freefr
+Far :freefr-remote:
+Near :freefr-local:
+Patterns *
+SyncState *
+
+IMAPAccount gmail
+Host imap.gmail.com
+User altomcat.sct1@gmail.com
+PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.credentials/.gmail-credentials.gpg"
+SSLType IMAPS
+SSLVersions TLSv1.1 TLSv1.2
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore gmail-remote
+Account gmail
+
+MaildirStore gmail-local
+Path ~/Mail/gmail/
+Inbox ~/Mail/gmail/Inbox
+SubFolders Verbatim
+
+Channel gmail-trash
+Far ":gmail-remote:[Gmail]/Trash"
+Near ":gmail-local:Trash"
+Sync Pull
+
+Channel gmail-drafts
+Far ":gmail-remote:[Gmail]/Drafts"
+Near ":gmail-local:Drafts"
+Sync Pull
+Expunge Both
+
+Channel gmail-sent
+Far ":gmail-remote:[Gmail]/Sent Mail"
+Near ":gmail-local:Sent"
+CopyArrivalDate yes
+Create Near
+Expunge Both
+SyncState *
+
+Channel gmail-inbox
+Far ":gmail-remote:INBOX"
+Near ":gmail-local:Inbox"
+Sync All
+Expunge Both
+
+Group gmail
+Channel gmail-trash
+Channel gmail-inbox
+Channel gmail-drafts
+Channel gmail-sent
+
+# IMAP Account for Orange.fr
+IMAPAccount orange
+Host imap.orange.fr
+User arnaud-lechevallier@wanadoo.fr
+PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.credentials/.orange-credentials.gpg"
+SSLType IMAPS
+SSLVersions TLSv1.1 TLSv1.2
+Port 993
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+# Remote Store (Free.fr IMAP)
+IMAPStore orange-remote
+Account orange
+
+# Local Store for Free.fr
+MaildirStore orange-local
+Path ~/Mail/orange/
+Inbox ~/Mail/orange/Inbox
+SubFolders Verbatim
+
+Channel orange
+Far :orange-remote:
+Near :orange-local:
+Patterns *
+SyncState *
+
+Group all
+Channel gmail-trash
+Channel gmail-inbox
+Channel gmail-drafts
+Channel gmail-sent
+Channel freefr
+Channel orange

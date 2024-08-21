@@ -16,6 +16,7 @@
    "xdg-utils" ; for xdg-open
    "xeyes" ; to find Xwayland apps
    "colord"
+   "notmuch"
 
    ;; utils
    "lsof"
@@ -24,5 +25,5 @@
    "radeon-firmware"
    "brightnessctl"
    "broadcom-bt-firmware"
-   "recutils"
+   "recutils" 				; provides recsel
    ))
