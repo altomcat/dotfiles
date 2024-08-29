@@ -9,7 +9,7 @@ IMAPAccount freefr
 Host imap.free.fr
 User arnaud.lechevallier@free.fr
 PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.credentials/.free-credentials.gpg"
-SSLType IMAPS
+TLSType IMAPS
 Port 993
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
@@ -27,13 +27,13 @@ Far :freefr-remote:
 Near :freefr-local:
 Patterns *
 SyncState *
+Sync All
 
 IMAPAccount gmail
 Host imap.gmail.com
 User altomcat.sct1@gmail.com
 PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.credentials/.gmail-credentials.gpg"
-SSLType IMAPS
-SSLVersions TLSv1.1 TLSv1.2
+TLSType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 IMAPStore gmail-remote
@@ -80,16 +80,15 @@ IMAPAccount orange
 Host imap.orange.fr
 User arnaud-lechevallier@wanadoo.fr
 PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.credentials/.orange-credentials.gpg"
-SSLType IMAPS
-SSLVersions TLSv1.1 TLSv1.2
+TLSType IMAPS
 Port 993
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
-# Remote Store (Free.fr IMAP)
+# Remote Store (orange.fr IMAP)
 IMAPStore orange-remote
 Account orange
 
-# Local Store for Free.fr
+# Local Store for orange.fr
 MaildirStore orange-local
 Path ~/Mail/orange/
 Inbox ~/Mail/orange/Inbox

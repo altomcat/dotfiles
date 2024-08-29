@@ -10,7 +10,8 @@
 # configured here named ".notmuch".
 #
 [database]
-path=~/Mail
+# Mail folder is relative to $HOME
+path=Mail
 # User configuration
 #
 # Here is where you can let notmuch know how you would like to be
@@ -82,4 +83,4 @@ exclude_tags=deleted;spam;
 synchronize_flags=true
 
 [show]
-extra_headers=Received;User-Agent
+extra_headers=Received;User-Agent;

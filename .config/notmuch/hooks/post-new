@@ -1,7 +1,20 @@
 #!/usr/bin/env -S bash
 # Remove the new tag from messages that are still tagged as new
 
-notmuch tag +free -- tag:new and to:arnaud.lechevallier@free.fr
-notmuch tag +gmail -- tag:new and to:altomcat.sct1@gmail.com
-notmuch tag +orange -- tag:new and to:arnaud-lechevallier@wanadoo.fr
-notmuch tag +orange -- tag:new and to:arnaud.lechevallier@orange.fr
+notmuch tag +free +inbox -- tag:new and to:arnaud.lechevallier@free.fr
+notmuch tag +gmail +inbox -- tag:new and to:altomcat.sct1@gmail.com
+notmuch tag +orange +inbox -- tag:new and to:arnaud-lechevallier@wanadoo.fr
+notmuch tag +orange +inbox -- tag:new and to:arnaud.lechevallier@orange.fr
+notmuch tag +list -spam -- tag:new and from:guix-patches
+
+# Sent by me
+#
+notmuch tag -inbox +sent -- tag:inbox AND \("folder:freefr/Sent messages" OR "folder:freefr/Sent"\)
+notmuch tag -inbox +sent -- tag:inbox \(from:"arnaud.lechevallier@free.fr" OR from:"altomcat.sct1@gmail.com" OR from:"arnaud-lechevallier@wanadoo.fr"\)
+
+# List of rules for tagging spam
+#
+notmuch tag +spam -- tag:new subject:"/^\*{3}.*SPAM.*\*{3}/"
+notmuch tag +spam -- tag:new folder:freefr/Junk
+notmuch tag +spam -- tag:new from:/"GasBuddy|Topastuce|FrenchyDeal|Dailydiscount|Dodo|rnaudlechevallier|BubbleMail|Promos|JackpotPromo|FrenchyDeal|BangWifes|Dailydiscount|Captainpromo"/
+notmuch tag +spam -- tag:new from:/"L.{1}insolite|Super.{1}Génie|Le.{1}Roi.{1}des.{1}Promos|Objets.{1}du.{1}net|Astuces.{1}au.{1}quotidien|boutique.{1}du.{1}bricolage|Ogma.{1}Media"/
