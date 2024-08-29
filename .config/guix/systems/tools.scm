@@ -16,6 +16,7 @@
    "xdg-utils" ; for xdg-open
    "xeyes" ; to find Xwayland apps
    "colord"
+   "fd" ; for consult-denote-find
    "notmuch"
 
    ;; utils

@@ -11,10 +11,13 @@
              (gnu home services desktop)
 	     (gnu home services shepherd)
              (gnu home services sound)
+	     (gnu home services mcron)
              (gnu packages)
 	     ;;(gnu packages ssh)
 	     (gnu packages version-control)
 	     (gnu packages xdisorg)
+	     (gnu packages mail)
+	     (gnu packages gnupg)
              (gnu services)
              (guix gexp))
 
@@ -45,6 +48,7 @@
      "fastfetch"
      "nss-certs"
      "notmuch"
+     "direnv"
      
      ;; themes
      "hicolor-icon-theme"
@@ -75,10 +79,12 @@
 				       "/home/a066501/.dotfiles/.config/guix/systems/alcline/.bash_profile-alcline"
 				       "bash_profile")))
 		  ))
-	(service home-mcron-service-type
-		 (home-mcron-configuration
-		  (jobs (list
-			 #~(job
-			    '(next-minute (range 0 60 5))
-			    (string-append #$isync "/bin/mbsync all")
-			    ))))))))
+	;; sync mail providers every 5mn
+	;; (service home-mcron-service-type
+	;; 	 (home-mcron-configuration
+	;; 	  (jobs (list
+	;; 		 #~(job
+	;; 		    '(next-minute (range 0 60 5))
+	;; 		    (string-append "export PATH=$HOME/.guix-home/profile/bin; "  #$isync "/bin/mbsync all")
+	;; 		    )))))
+	)))
