@@ -44,4 +44,5 @@ export QT_QPA_PLATFORM=wayland
 export DISPLAY=:0
 export WAYLAND_DISPLAY=wayland-0
 
-(command -v fastfetch) && fastfetch
+$(command -v direnv > /dev/null) && eval "$(direnv hook bash)"
+$(command -v fastfetch > /dev/null) && fastfetch
