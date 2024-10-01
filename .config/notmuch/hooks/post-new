@@ -1,11 +1,14 @@
 #!/usr/bin/env -S bash
+
+# mailing list
+notmuch tag +list -spam -- folder:"freefr/Junk" and \(subject:"bug#" or subject:"[PATCH]" or from:guix-patches\)
+notmuch tag +list -- tag:unread and \(subject:"bug#" or subject:"[PATCH]" or from:guix-patches\)
+
 # Remove the new tag from messages that are still tagged as new
 
 notmuch tag +free +inbox -- tag:new and to:arnaud.lechevallier@free.fr
 notmuch tag +gmail +inbox -- tag:new and to:altomcat.sct1@gmail.com
-notmuch tag +orange +inbox -- tag:new and to:arnaud-lechevallier@wanadoo.fr
-notmuch tag +orange +inbox -- tag:new and to:arnaud.lechevallier@orange.fr
-notmuch tag +list -spam -- tag:new and from:guix-patches
+notmuch tag +orange +inbox -- tag:new and \(to:arnaud-lechevallier@wanadoo.fr or to:arnaud.lechevallier@orange.fr\)
 
 # Sent by me
 #
@@ -15,6 +18,6 @@ notmuch tag -inbox +sent -- tag:inbox \(from:"arnaud.lechevallier@free.fr" OR fr
 # List of rules for tagging spam
 #
 notmuch tag +spam -- tag:new subject:"/^\*{3}.*SPAM.*\*{3}/"
-notmuch tag +spam -- tag:new folder:freefr/Junk
-notmuch tag +spam -- tag:new from:/"GasBuddy|Topastuce|FrenchyDeal|Dailydiscount|Dodo|rnaudlechevallier|BubbleMail|Promos|JackpotPromo|FrenchyDeal|BangWifes|Dailydiscount|Captainpromo"/
+# notmuch tag +spam -- tag:new folder:freefr/Junk
+notmuch tag +spam -- tag:new from:/"CocciMail|GasBuddy|Topastuce|FrenchyDeal|Dailydiscount|Dodo|rnaudlechevallier|BubbleMail|Promos|JackpotPromo|FrenchyDeal|BangWifes|Dailydiscount|Captainpromo|Ogma"/
 notmuch tag +spam -- tag:new from:/"L.{1}insolite|Super.{1}Génie|Le.{1}Roi.{1}des.{1}Promos|Objets.{1}du.{1}net|Astuces.{1}au.{1}quotidien|boutique.{1}du.{1}bricolage|Ogma.{1}Media"/
