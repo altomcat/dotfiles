@@ -60,6 +60,7 @@
    "emacs-citar-org-roam"
    "emacs-org-fancy-priorities"
    "emacs-org-roam-ui"
+   "emacs-qrencode"
    "emacs-saveplace-pdf-view"
    "emacs-pdf-tools"
    "emacs-org-noter"
