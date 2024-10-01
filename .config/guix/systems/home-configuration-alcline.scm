@@ -43,12 +43,18 @@
      "pinentry-emacs"
      "curl"
      "ripgrep"
+     "fd"
      "isync"
      "openssh"
      "fastfetch"
      "nss-certs"
      "notmuch"
      "direnv"
+
+     ;; dictionary
+     "aspell"
+     "aspell-dict-en"
+     "aspell-dict-fr"
      
      ;; themes
      "hicolor-icon-theme"
