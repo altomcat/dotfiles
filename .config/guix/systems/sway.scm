@@ -16,7 +16,7 @@
    "swayidle"
    "wl-clipboard"
    "slurp"
-   "grimshot"
+   "grim"
    "swappy" ;; screenshot for sway
    "thunar"
    "thunar-volman"

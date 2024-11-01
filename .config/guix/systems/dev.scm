@@ -23,7 +23,7 @@
    "gnuplot"
 
    ;; libraries
-   "ffmpeg"
+   ;;"ffmpeg" provided with mpv
    "libpng"
    "zstd"
    "gtk+:bin"
