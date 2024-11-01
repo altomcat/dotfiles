@@ -10,6 +10,7 @@
              (gnu home services ssh)
              (gnu home services desktop)
 	     (gnu home services shepherd)
+             (gnu home services syncthing)
              (gnu home services sound)
 	     (gnu home services mcron)
              (gnu packages)
@@ -37,8 +38,15 @@
   (specifications->packages
    (append
     (list
+     "vim"
+     "nss-certs"
+     "google-chrome-stable"
      "glibc-locales"
+     "node"
+     "yt-dlp"
+     "mpv"
      "git"
+     "git:send-email"
      "gnupg"
      "pinentry-emacs"
      "curl"
@@ -50,6 +58,8 @@
      "nss-certs"
      "notmuch"
      "direnv"
+     ;;"docker"
+     ;;"docker-cli"
 
      ;; dictionary
      "aspell"
@@ -85,6 +95,9 @@
 				       "/home/a066501/.dotfiles/.config/guix/systems/alcline/.bash_profile-alcline"
 				       "bash_profile")))
 		  ))
+        (service home-syncthing-service-type
+		 (for-home
+		  (syncthing-configuration (logflags 5))))
 	;; sync mail providers every 5mn
 	;; (service home-mcron-service-type
 	;; 	 (home-mcron-configuration

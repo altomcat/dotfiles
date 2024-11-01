@@ -4,11 +4,12 @@
 	     (gnu home services ssh)
              (gnu home services desktop)
              (gnu home services shepherd)
+	     (gnu home services syncthing)
 	     (gnu home services sound)
              (gnu packages)
-					;(gnu packages admin)
-					;(gnu packages glib)
-					;(gnu packages bash)
+	     ;; (gnu packages admin)
+	     ;; (gnu packages glib)
+	     ;; (gnu packages bash)
 	     (gnu packages xdisorg)
 	     (gnu services)
              (guix gexp))
@@ -105,5 +106,8 @@
 		   (list (openssh-host (name "Arrakis")
 				       (host-name "192.168.1.7")
 				       (user "altomcat"))))))
+	(service home-syncthing-service-type
+		 (for-home
+		  (syncthing-configuration (logflags 5))))
 	;; %sway-launcher-service
 	)))
