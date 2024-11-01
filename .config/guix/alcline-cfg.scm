@@ -10,47 +10,76 @@
   #:use-module (ice-9 pretty-print)
   #:use-module (srfi srfi-1))
 
+(use-service-modules desktop networking)
+
 (define-public wsl-operating-system
   (operating-system
-   (host-name "alcline")
-   (keyboard-layout (keyboard-layout "us" "altgr-intl"))
-   (locale "en_US.utf8")
-   (timezone "Europe/Paris")
+    (host-name "alcline")
+    (keyboard-layout (keyboard-layout "us" "altgr-intl"))
+    (locale "en_US.utf8")
+    (timezone "Europe/Paris")
 
-   (locale-definitions (list (locale-definition (name "fr_FR.utf8")
-						(source "fr_FR"))
-                             (locale-definition (name "en_US.utf8")
-						(source "en_US"))))
-   ;; User account
-   (users (cons (user-account
-                 (name "a066501")
-                 (group "users")
-                 (home-directory "/home/a066501")
-                 (supplementary-groups '("wheel")))
-                %base-user-accounts))
+    (locale-definitions (list (locale-definition (name "fr_FR.utf8")
+						 (source "fr_FR"))
+                              (locale-definition (name "en_US.utf8")
+						 (source "en_US"))))
+    ;; User account
+    (users (cons (user-account
+                  (name "a066501")
+                  (group "users")
+                  (home-directory "/home/a066501")
+                  (supplementary-groups '("wheel")))
+                 %base-user-accounts))
 
-   (kernel hello)
-   (initrd (lambda* (. rest) (plain-file "dummyinitrd" "dummyinitrd")))
-   (initrd-modules '())
-   (firmware '())
+    (kernel hello)
+    (initrd (lambda* (. rest) (plain-file "dummyinitrd" "dummyinitrd")))
+    (initrd-modules '())
+    (firmware '())
 
-   (bootloader
-    (bootloader-configuration
-     (bootloader
+    (bootloader
+     (bootloader-configuration
       (bootloader
-       (name 'dummybootloader)
-       (package hello)
-       (configuration-file "/dev/null")
-       (configuration-file-generator (lambda* (. rest) (computed-file "dummybootloader" #~(mkdir #$output))))
-       (installer #~(const #t))))))
+       (bootloader
+	(name 'dummybootloader)
+	(package hello)
+	(configuration-file "/dev/null")
+	(configuration-file-generator
+	 (lambda* (. rest)
+	   (computed-file "dummybootloader" #~(mkdir #$output))))
+	(installer #~(const #t))))))
 
-   (file-systems (list (file-system
-                        (device "/dev/sdb")
-                        (mount-point "/")
-                        (type "ext4")
-                        (mount? #t))))
+    (file-systems (list (file-system
+                          (device "/dev/sdb")
+                          (mount-point "/")
+                          (type "ext4")
+                          (mount? #t))))
 
-   (services (list (service guix-service-type)
-                   (service special-files-service-type
-                            `(("/usr/bin/env" ,(file-append coreutils "/bin/env"))))))))
+    (packages
+     (cons*
+      (specification->package "podman")
+      %base-packages))
+
+    (services (list (service guix-service-type)
+                    (service special-files-service-type
+                             `(("/usr/bin/env" ,(file-append coreutils "/bin/env"))))
+
+		    (simple-service 'subuid-subgid etc-service-type
+				    (list `("subuid"
+					    ,(plain-file "subuid"
+							 (string-join
+							  '("a066501:100000:65536")
+                                                          "\n" 'suffix)))
+					  `("subgid"
+					    ,(plain-file "subgid"
+							 (string-join
+							  '("a066501:100000:65536")
+                                                          "\n" 'suffix)))))
+
+		    ;;
+		    ;; this can also be managed per-user in ~/.config/containers.
+		    ;;
+		    (simple-service 'podman-containers-conf etc-service-type
+				    (list `("containers/policy.json"
+					    ,(plain-file "policy.json"
+							 "{\"default\": [{\"type\": \"insecureAcceptAnything\"}]}" ))))))))
 wsl-operating-system
