@@ -14,6 +14,7 @@
 	  "cb7dbb3911da911e06146d4a7bde372c4b5a4783"
 	  (openpgp-fingerprint
 	   "AA52 B3F3 E764 5F95 6BA1 23E2 43D7 A3F7 7931 A85D"))))
+
        ;; (channel
        ;; 	(name 'rde)
        ;; 	(url "https://git.sr.ht/~abcdw/rde")
