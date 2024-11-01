@@ -11,7 +11,7 @@
              (nongnu system linux-initrd))
 
 (use-service-modules linux dbus cups virtualization docker desktop networking ssh spice xorg)
-(use-package-modules gnome emacs vpn virtualization cups spice wm firmware)
+(use-package-modules display-managers gnome emacs vpn virtualization cups spice wm firmware)
 
 (define %my-desktop-services
   (modify-services %desktop-services
@@ -95,7 +95,7 @@
 	   "gvfs"
 	   "tlp"
 	   "wireguard-tools"
-           "chili-sddm-theme"
+	   "chili-sddm-theme"
 	   "ovmf" 
 	   ))
     %base-packages))
@@ -109,8 +109,9 @@
      (service gnome-desktop-service-type)
      (service sddm-service-type
 	      (sddm-configuration
+	       (sddm sddm-qt5)
 	       (theme "chili")
-               (remember-last-user? #t)
+	       (remember-last-user? #t)
 	       ))
      (service libvirt-service-type
 	      (libvirt-configuration
