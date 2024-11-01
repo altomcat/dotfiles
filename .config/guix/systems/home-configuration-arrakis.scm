@@ -59,13 +59,13 @@
                  (home-bash-configuration
                   (guix-defaults? #f)
 		  (bashrc (list (local-file
-				 "/home/altomcat/guix-config/.bashrc"
+				 "./arrakis/.bashrc-arrakis"
 				 "bashrc")
 				;; (mixed-text-file "direnv"
 				;; 		 "$(command -v direnv > /dev/null) && eval $(direnv hook bash)")
-				(mixed-text-file "fastfetch" "$(command -v fastfetch && fastfetch)")))
+				(mixed-text-file "fastfetch" "(command -v fastfetch) && fastfetch")))
 		  (bash-profile (list (local-file
-				       "/home/altomcat/guix-config/.bash_profile"
+				       "./arrakis/.bash_profile-arrakis"
 				       "bash_profile")))
 		  (environment-variables '(("PS1" . "\\u \\wλ ")
 					   ("ALTERNATE_EDITOR" . "")
