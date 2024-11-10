@@ -58,14 +58,13 @@
      "nss-certs"
      "notmuch"
      "direnv"
-     ;;"docker"
-     ;;"docker-cli"
+     "shellcheck"
 
      ;; dictionary
      "aspell"
      "aspell-dict-en"
      "aspell-dict-fr"
-     
+
      ;; themes
      "hicolor-icon-theme"
      "adwaita-icon-theme" ;; for virt-manager icons
