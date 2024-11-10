@@ -2,6 +2,7 @@
 (define %my-emacs-pkgs
   (list
    ;; emacs
+   "emacs-0x0"
    "emacs-arei"				;; use with guile-ares-rs
    "emacs-eat"
    "emacs-denote"
@@ -110,6 +111,7 @@
    "emacs-julia-repl"
    "emacs-typescript-mode"
    "emacs-json-mode"
+   "emacs-jsonrpc"
    "emacs-js2-mode"
    "emacs-lua-mode"
    "emacs-cmake-mode"
