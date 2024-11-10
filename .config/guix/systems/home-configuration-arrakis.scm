@@ -10,6 +10,7 @@
              (gnu home services ssh)
              (gnu home services desktop)
 	     (gnu home services shepherd)
+	     (gnu home services syncthing)
              (gnu home services sound)
              (gnu packages)
 	     (gnu packages xdisorg)
@@ -75,6 +76,9 @@
                    '(("youtube-dl" . "yt-dlp")))))
 	(service home-dbus-service-type)
 	(service home-pipewire-service-type)
+	(service home-syncthing-service-type
+		 (for-home
+		  (syncthing-configuration (logflags 5))))
 	(service home-redshift-service-type
 		 (home-redshift-configuration
 		  (redshift redshift-wayland)
