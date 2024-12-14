@@ -16,7 +16,7 @@
    "xeyes" ; to find Xwayland apps
    "colord"
    "fd" ; for consult-denote-find
-   "spellcheck" ; enable linting for bash-language-server
+   "shellcheck" ; enable linting for bash-language-server
    ;; mail imap
    "notmuch"
    "isync"
