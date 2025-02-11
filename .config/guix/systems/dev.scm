@@ -9,7 +9,7 @@
    "python"
    "direnv"
    "shellcheck"
-   
+
    ;; guile library
    "guile-ac-d-bus"
    "guile-ares-rs"
@@ -21,6 +21,9 @@
    "graphviz"
    "xdot"
    "gnuplot"
+
+   ;; documentation/man-pages
+   "man-pages"
 
    ;; libraries
    ;;"ffmpeg" provided with mpv

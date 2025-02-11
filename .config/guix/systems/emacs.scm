@@ -35,6 +35,8 @@
    "emacs-denote"
    "emacs-doom-themes"
    "emacs-modus-themes"
+   "emacs-miasma-theme"
+   "emacs-hasliberg-theme"
    "emacs-org-modern"
    "emacs-nerd-icons"
    "emacs-notmuch"
@@ -132,5 +134,10 @@
    "emacs-ox-haunt"
    "emacs-langtool"
    "emacs-svg-lib"
+   "emacs-nasm-mode"
+   "emacs-odin-mode"
+   "emacs-odin-ts-mode"
+   "emacs-flycheck-odin"
+   "emacs-vterm"
    ;;"tree-sitter"  ; useless because of internal treesit
    ))

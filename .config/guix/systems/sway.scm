@@ -7,7 +7,7 @@
    "swayhide"
    "waybar"
    "wlr-randr"
-   "swaynotificationcenter";; Sway notification 
+   "swaynotificationcenter";; Sway notification
    "wf-recorder" ;; Screencast recorder for sway
    ;; "kanshi" ;; replacement for arandr
    ;; "arandr"
@@ -20,6 +20,7 @@
    "swappy" ;; screenshot for sway
    "thunar"
    "thunar-volman"
+   "foot"
    "alacritty"
    "fuzzel"
    "gucharmap" ;; view Unicode characters table
