@@ -35,6 +35,7 @@ alias grep='grep --color=auto'
 alias vi=vim
 alias update-system='sudo guix system -L ~/.dotfiles reconfigure ~/dotfiles/guix-config/systems/$(hostname).scm'
 alias update-home='guix home -L ~/.dotfiles reconfigure ~/.dotfiles/guix-config/home/home-config.scm'
+alias gohaunt='cd ~/projects/altomcat.github.io && guix shell haunt -- haunt serve --watch'
 
 export SSL_CERT_DIR="$HOME/.guix-profile/etc/ssl/certs"
 export SSL_CERT_FILE="$HOME/.guix-profile/etc/ssl/certs/ca-certificates.crt"
