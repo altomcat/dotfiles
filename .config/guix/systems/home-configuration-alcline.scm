@@ -97,12 +97,4 @@
         (service home-syncthing-service-type
 		 (for-home
 		  (syncthing-configuration (logflags 5))))
-	;; sync mail providers every 5mn
-	;; (service home-mcron-service-type
-	;; 	 (home-mcron-configuration
-	;; 	  (jobs (list
-	;; 		 #~(job
-	;; 		    '(next-minute (range 0 60 5))
-	;; 		    (string-append "export PATH=$HOME/.guix-home/profile/bin; "  #$isync "/bin/mbsync all")
-	;; 		    )))))
 	)))
