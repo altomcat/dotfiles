@@ -23,7 +23,7 @@
 
    ;; utils
    "lsof"
-   "ntfs-3g"
+   ;;"ntfs-3g"
    "pasystray"
    "radeon-firmware"
    "brightnessctl"

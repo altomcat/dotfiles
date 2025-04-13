@@ -3,7 +3,7 @@
    "git"
    "automake"
    "autoconf"
-   "gcc-toolchain@12"
+   ;;"gcc-toolchain@12"
    "rust"
    "cmake"
    "python"

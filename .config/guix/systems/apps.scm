@@ -1,8 +1,9 @@
 (define %my-apps-pkgs
   (list
    ;; webrowser
+   ;;"google-chrome-stable"
    "ungoogled-chromium-wayland"
-   "icecat"
+   ;;"icecat"
    
    ;; torrent
    "transmission"
@@ -20,7 +21,7 @@
    "cli-visualizer" ;; aka vis
 
    ;; ebooks
-   "calibre"
+   ;; "calibre"
    
    ;; dictionary
    "aspell"
@@ -35,11 +36,9 @@
    "btop"
 
    ;; terminal
-   ;;"fish"
+   "foot"
 
    ;; Screencast / Screencopy
    "peek" ; screencast
    "sxiv" ; image viewer
-   "scrot"
-
-   ))
+   "scrot"))
