@@ -322,6 +322,7 @@ for_window {
   [app_id="pavucontrol"] $popup
   [class="icecat-default"] fullscreen
   [class="Chromium-browser"] fullscreen
+  [class="Google-chrome"] fullscreen
   [app_id="alacritty"] saturation set 2; blur enable
   [app_id="btop"] floating enable, border pixel 1, resize set width 740px height 440px
   [app_id="vis"] floating enable, border pixel 1, resize set width 600px height 250px, sticky enable 
@@ -339,10 +340,8 @@ assign [app_id="virt-manager"] workspace 6
 
 # my bindings
 
-# bindsym $mod+Shift+b exec chromium
+bindsym $mod+Ctrl+b exec google-chrome
 bindsym $mod+Ctrl+b exec chromium
-
-# bindsym $mod+Shift+f exec thunar
 bindsym $mod+Ctrl+f exec thunar
 
 # Grimshot for Screenshots
