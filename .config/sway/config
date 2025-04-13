@@ -340,7 +340,7 @@ assign [app_id="virt-manager"] workspace 6
 
 # my bindings
 
-bindsym $mod+Ctrl+b exec google-chrome
+# bindsym $mod+Ctrl+b exec google-chrome
 bindsym $mod+Ctrl+b exec chromium
 bindsym $mod+Ctrl+f exec thunar
 
