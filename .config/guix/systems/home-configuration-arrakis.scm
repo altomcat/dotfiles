@@ -26,64 +26,65 @@
 (load "tools.scm")
 ;; (load "gnome.scm")
 
-(home-environment
- ;; Below is the list of packages that will show up in your
- ;; Home profile, under ~/.guix-home/profile.
- (packages
-  (specifications->packages
-   (append
-    (list
-     ;; locales
-     "glibc-locales"
-     
-     ;; themes
-     "hicolor-icon-theme"
-     "adwaita-icon-theme" ;; for virt-manager icons
-     "matcha-theme"
-     "papirus-icon-theme"
-     )
+(when (string= "arrakis" (gethostname))
+  (home-environment
+   ;; Below is the list of packages that will show up in your
+   ;; Home profile, under ~/.guix-home/profile.
+   (packages
+    (specifications->packages
+     (append
+      (list
+       ;; locales
+       "glibc-locales"
+       
+       ;; themes
+       "hicolor-icon-theme"
+       "adwaita-icon-theme" ;; for virt-manager icons
+       "matcha-theme"
+       "papirus-icon-theme"
+       )
 
-    %my-fonts-pkgs
-    %my-virtualization-pkgs
-    %my-sway-pkgs
-    %my-emacs-pkgs
-    %my-dev-pkgs
-    %my-apps-pkgs
-    %my-tools-pkgs
-    ;;%my-gnome-pkgs
-    )))
+      %my-fonts-pkgs
+      %my-virtualization-pkgs
+      %my-sway-pkgs
+      %my-emacs-pkgs
+      %my-dev-pkgs
+      %my-apps-pkgs
+      %my-tools-pkgs
+      ;;%my-gnome-pkgs
+      )))
 
- ;; Below Is the list of Home services.  To search for available
- ;; services, run 'guix home search KEYWORD' in a terminal.
- (services
-  (list (service home-bash-service-type
-                 (home-bash-configuration
-                  (guix-defaults? #f)
-		  (bashrc (list (local-file
-				 "./arrakis/.bashrc-arrakis"
-				 "bashrc")
-				;; (mixed-text-file "direnv"
-				;; 		 "$(command -v direnv > /dev/null) && eval $(direnv hook bash)")
-				(mixed-text-file "fastfetch" "(command -v fastfetch) && fastfetch")))
-		  (bash-profile (list (local-file
-				       "./arrakis/.bash_profile-arrakis"
-				       "bash_profile")))
-		  (environment-variables '(("PS1" . "\\u \\wλ ")
-					   ("ALTERNATE_EDITOR" . "")
-					   ("EDITOR" . "emacsclient -t")
-					   ("VISUAL" . "emacsclient -c -a emacs")))
-		  (aliases
-                   '(("youtube-dl" . "yt-dlp")))))
-	(service home-dbus-service-type)
-	(service home-pipewire-service-type)
-	(service home-syncthing-service-type
-		 (for-home
-		  (syncthing-configuration (logflags 5))))
-	(service home-redshift-service-type
-		 (home-redshift-configuration
-		  (redshift redshift-wayland)
-	          (adjustment-method 'wayland)
-		  (location-provider 'manual)
-		  (latitude 49.0)
-		  (longitude 1.2)))
-	)))
+   ;; Below Is the list of Home services.  To search for available
+   ;; services, run 'guix home search KEYWORD' in a terminal.
+   (services
+    (list (service home-bash-service-type
+                   (home-bash-configuration
+                    (guix-defaults? #f)
+		    (bashrc (list (local-file
+				   "./arrakis/.bashrc-arrakis"
+				   "bashrc")
+				  ;; (mixed-text-file "direnv"
+				  ;; 		 "$(command -v direnv > /dev/null) && eval $(direnv hook bash)")
+				  (mixed-text-file "fastfetch" "(command -v fastfetch) && fastfetch")))
+		    (bash-profile (list (local-file
+					 "./arrakis/.bash_profile-arrakis"
+					 "bash_profile")))
+		    (environment-variables '(("PS1" . "\\u \\wλ ")
+					     ("ALTERNATE_EDITOR" . "")
+					     ("EDITOR" . "emacsclient -t")
+					     ("VISUAL" . "emacsclient -c -a emacs")))
+		    (aliases
+                     '(("youtube-dl" . "yt-dlp")))))
+	  (service home-dbus-service-type)
+	  (service home-pipewire-service-type)
+	  (service home-syncthing-service-type
+		   (for-home
+		    (syncthing-configuration (logflags 5))))
+	  (service home-redshift-service-type
+		   (home-redshift-configuration
+		    (redshift redshift-wayland)
+	            (adjustment-method 'wayland)
+		    (location-provider 'manual)
+		    (latitude 49.0)
+		    (longitude 1.2)))
+	  ))))

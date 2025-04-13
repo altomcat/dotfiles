@@ -41,73 +41,74 @@
 ;;                    (environment-variables
 ;;                     '(("PS1" . "\\u \\wλ "))))))
 
-(home-environment
- ;; Below is the list of packages that will show up in your
- ;; Home profile, under ~/.guix-home/profile.
- (packages
-  (specifications->packages
-   (append
-    (list
-     ;; locales
-     "glibc-locales"
+(when (string= "argiope" (gethostname))
+  (home-environment
+   ;; Below is the list of packages that will show up in your
+   ;; Home profile, under ~/.guix-home/profile.
+   (packages
+    (specifications->packages
+     (append
+      (list
+       ;; locales
+       "glibc-locales"
 
-     ;; themes
-     "hicolor-icon-theme"
-     "adwaita-icon-theme" ;; for virt-manager icons
-     "matcha-theme"
-     "papirus-icon-theme"
-     )
+       ;; themes
+       "hicolor-icon-theme"
+       "adwaita-icon-theme" ;; for virt-manager icons
+       "matcha-theme"
+       "papirus-icon-theme"
+       )
 
-    %my-fonts-pkgs
-    %my-virtualization-pkgs
-    %my-sway-pkgs
-    %my-emacs-pkgs
-    %my-dev-pkgs
-    %my-apps-pkgs
-    %my-tools-pkgs
-    %my-gnome-pkgs
-    )))
+      %my-fonts-pkgs
+      %my-virtualization-pkgs
+      %my-sway-pkgs
+      %my-emacs-pkgs
+      %my-dev-pkgs
+      %my-apps-pkgs
+      %my-tools-pkgs
+      %my-gnome-pkgs
+      )))
 
- ;; "dconf" ;; store connections for virt-manager
+   ;; "dconf" ;; store connections for virt-manager
 
- ;; ;; dev
- ;; ;;"poetry"
+   ;; ;; dev
+   ;; ;;"poetry"
 
- ;; ;; webrowser
- ;; "vimb"
- ;; "ungoogled-chromium-wayland"
+   ;; ;; webrowser
+   ;; "vimb"
+   ;; "ungoogled-chromium-wayland"
 
- (services
-  (list (service home-bash-service-type
-		 (home-bash-configuration
-		  (guix-defaults? #f)
-		  (bashrc (list (local-file
-				 "/home/li3n/guix-config/.bashrc"
-				 "bashrc")
-				(mixed-text-file "neofetch" "$(command -v neofetch && neofetch)")))
-		  (bash-profile (list (local-file
-				       "/home/li3n/guix-config/.bash_profile"
-				       "bash_profile")))
-		  ;; environment variables are written in .bash_profile
-		  (environment-variables '(("ALTERNATE_EDITOR" . "")
-					   ("EDITOR" . "emacsclient -t")
-					   ("VISUAL" . "emacsclient -c -a emacs")
-					   ;; ("PS1" . "\\u \\wλ ")
-					   ))
-		  ;; aliases are written in .bashrc
-		  (aliases
-		   '(("youtube-dl" . "yt-dlp")))))
+   (services
+    (list (service home-bash-service-type
+		   (home-bash-configuration
+		    (guix-defaults? #f)
+		    (bashrc (list (local-file
+				   "./argiope/.bashrc-argiope"
+				   "bashrc")
+				  (mixed-text-file "fastfetch" "(command -v fastfetch) && fastfetch")))
+		    (bash-profile (list (local-file
+					 "./argiope/.bash_profile-argiope"
+					 "bash_profile")))
+		    ;; environment variables are written in .bash_profile
+		    (environment-variables '(("ALTERNATE_EDITOR" . "")
+					     ("EDITOR" . "emacsclient -t")
+					     ("VISUAL" . "emacsclient -c -a emacs")
+					     ;; ("PS1" . "\\u \\wλ ")
+					     ))
+		    ;; aliases are written in .bashrc
+		    (aliases
+		     '(("youtube-dl" . "yt-dlp")))))
 
-	(service home-dbus-service-type)
-	(service home-pipewire-service-type)
-	(service home-openssh-service-type
-		 (home-openssh-configuration
-		  (hosts
-		   (list (openssh-host (name "Arrakis")
-				       (host-name "192.168.1.7")
-				       (user "altomcat"))))))
-	(service home-syncthing-service-type
-		 (for-home
-		  (syncthing-configuration (logflags 5))))
-	;; %sway-launcher-service
-	)))
+	  (service home-dbus-service-type)
+	  (service home-pipewire-service-type)
+	  (service home-openssh-service-type
+		   (home-openssh-configuration
+		    (hosts
+		     (list (openssh-host (name "Arrakis")
+					 (host-name "192.168.1.7")
+					 (user "altomcat"))))))
+	  (service home-syncthing-service-type
+		   (for-home
+		    (syncthing-configuration (logflags 5))))
+	  ;; %sway-launcher-service
+	  ))))
