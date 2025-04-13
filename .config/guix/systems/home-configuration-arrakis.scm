@@ -24,7 +24,7 @@
 (load "dev.scm")
 (load "apps.scm")
 (load "tools.scm")
-(load "gnome.scm")
+;; (load "gnome.scm")
 
 (home-environment
  ;; Below is the list of packages that will show up in your
@@ -50,7 +50,7 @@
     %my-dev-pkgs
     %my-apps-pkgs
     %my-tools-pkgs
-    %my-gnome-pkgs
+    ;;%my-gnome-pkgs
     )))
 
  ;; Below Is the list of Home services.  To search for available
