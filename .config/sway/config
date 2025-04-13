@@ -19,7 +19,7 @@ set $editor $VISUAL
 #exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus
 
 # set $menu wofi --show run
-set $menu fuzzel -w 50 -x 8 -y 8 -r 3 -b 232635FF -t A6ACCDFF -s A6ACCDFF  -S 232635FF -C c792EACC -m C792EACC --no-fuzzy --icon-theme="Papirus-Dark" --font="Iosevka Comfy:weight=light:size=12" --prompt=">_ " #--line-height 28
+set $menu fuzzel -w 50 -x 8 -y 8 -r 3 -b 232635FF -t A6ACCDFF -s A6ACCDFF  -S 232635FF -C c792EACC -m C792EACC --icon-theme="Papirus-Dark" --font="Iosevka Comfy:weight=light:size=12" --prompt=">_ " #--line-height 28
 
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
