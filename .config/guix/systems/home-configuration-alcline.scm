@@ -39,7 +39,6 @@
    (append
     (list
      "vim"
-     "nss-certs"
      "google-chrome-stable"
      "glibc-locales"
      "node"
@@ -59,6 +58,8 @@
      "notmuch"
      "direnv"
      "shellcheck"
+     "graphicsmagick"
+     "scrot"
 
      ;; dictionary
      "aspell"
@@ -87,14 +88,17 @@
   (list (service home-bash-service-type
                  (home-bash-configuration
                   (guix-defaults? #f)
-		  (bashrc (list (local-file
-				 "/home/a066501/.dotfiles/.config/guix/systems/alcline/.bashrc-alcline"
-				 "bashrc")))
-		  (bash-profile (list (local-file
-				       "/home/a066501/.dotfiles/.config/guix/systems/alcline/.bash_profile-alcline"
-				       "bash_profile")))
-		  ))
+                  (aliases '())
+		  (bashrc
+                   (list
+                    (local-file
+		     "/home/a066501/.dotfiles/.config/guix/systems/alcline/.bashrc-alcline"
+		     "bashrc")))
+		  (bash-profile
+                   (list
+                    (local-file
+		     "/home/a066501/.dotfiles/.config/guix/systems/alcline/.bash_profile-alcline"
+		     "bash_profile")))))
         (service home-syncthing-service-type
 		 (for-home
-		  (syncthing-configuration (logflags 5))))
-	)))
+		  (syncthing-configuration (logflags 5)))))))
