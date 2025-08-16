@@ -29,12 +29,12 @@
     "stow"
     "gnupg"
     "p7zip"
-    
+
     ;;development
     "make"
     "git"
     "openjdk:jdk"
-    
+
     "openssh"
     "picom"
     "nitrogen"
@@ -59,12 +59,12 @@
     "emacs-cape"
     "emacs-ccls"
     "emacs-citar"
-    "emacs-citar-org-roam"
+    ;; "emacs-citar-org-roam"
     "emacs-cmake-mode"
     "emacs-consult"
     "emacs-consult-eglot"
     "emacs-consult-lsp"
-    "emacs-consult-org-roam"
+    ;; "emacs-consult-org-roam"
     "emacs-corfu"
     "emacs-dap-mode"
     "emacs-dashboard"
@@ -118,9 +118,9 @@
     "emacs-org-present"
     "emacs-org-ref"
     "emacs-org-reveal"
-    "emacs-org-roam"
-    "emacs-org-roam-bibtex"
-    "emacs-org-roam-ui"
+    ;; "emacs-org-roam"
+    ;; "emacs-org-roam-bibtex"
+    ;; "emacs-org-roam-ui"
     "emacs-org-superstar"
     "emacs-org-tree-slide"
     "emacs-ox-pandoc"
@@ -173,7 +173,7 @@
     ;;"emacs-websocket"
     ;;"emacs-zmq"
     )))
- 
+
  ;; Below is the list of Home services.  To search for available
  ;; services, run 'guix home search KEYWORD' in a terminal.
  (services

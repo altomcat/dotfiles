@@ -19,5 +19,5 @@ notmuch tag -inbox +sent -- tag:inbox \(from:"arnaud.lechevallier@free.fr" OR fr
 #
 notmuch tag +spam -- tag:new subject:"/^\*{3}.*SPAM.*\*{3}/"
 # notmuch tag +spam -- tag:new folder:freefr/Junk
-notmuch tag +spam -- tag:new from:/"CocciMail|GasBuddy|Topastuce|FrenchyDeal|Dailydiscount|Dodo|rnaudlechevallier|BubbleMail|Promos|JackpotPromo|FrenchyDeal|BangWifes|Dailydiscount|Captainpromo|Ogma"/
+notmuch tag +spam -- tag:new from:/"CocciMail|Tripadvisor|GasBuddy|Topastuce|FrenchyDeal|Dailydiscount|Dodo|rnaudlechevallier|BubbleMail|Promos|JackpotPromo|FrenchyDeal|BangWifes|Dailydiscount|Captainpromo|Ogma"/
 notmuch tag +spam -- tag:new from:/"L.{1}insolite|Super.{1}Génie|Le.{1}Roi.{1}des.{1}Promos|Objets.{1}du.{1}net|Astuces.{1}au.{1}quotidien|boutique.{1}du.{1}bricolage|Ogma.{1}Media"/
