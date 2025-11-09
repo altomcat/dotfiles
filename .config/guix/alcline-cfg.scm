@@ -10,7 +10,11 @@
   #:use-module (ice-9 pretty-print)
   #:use-module (srfi srfi-1))
 
-(use-service-modules desktop networking)
+(use-service-modules desktop
+		     networking
+		     security-token)
+
+(use-package-modules security-token)
 
 (define-public wsl-operating-system
   (operating-system
@@ -60,27 +64,36 @@
       (specification->package "glibc-locales")
       %base-packages))
 
-    (services (list (service guix-service-type)
-                    (service special-files-service-type
-                             `(("/usr/bin/env" ,(file-append coreutils "/bin/env"))))
+    (services
+     (list
+      (service guix-service-type)
 
-		    (simple-service 'subuid-subgid etc-service-type
-				    (list `("subuid"
-					    ,(plain-file "subuid"
-							 (string-join
-							  '("a066501:100000:65536")
-                                                          "\n" 'suffix)))
-					  `("subgid"
-					    ,(plain-file "subgid"
-							 (string-join
-							  '("a066501:100000:65536")
-                                                          "\n" 'suffix)))))
+      ;; Security Keys
+      (service pcscd-service-type)
+      ;; (udev-rules-service 'fido2 libfido2 #:groups '("plugdev"))
+      (udev-rules-service 'yubikey yubikey-personalization)
+      ;; (udev-rules-service 'security-key libu2f-host)
 
-		    ;;
-		    ;; this can also be managed per-user in ~/.config/containers.
-		    ;;
-		    (simple-service 'podman-containers-conf etc-service-type
-				    (list `("containers/policy.json"
-					    ,(plain-file "policy.json"
-							 "{\"default\": [{\"type\": \"insecureAcceptAnything\"}]}" ))))))))
+      (service special-files-service-type
+               `(("/usr/bin/env" ,(file-append coreutils "/bin/env"))))
+
+      (simple-service 'subuid-subgid etc-service-type
+		      (list `("subuid"
+			      ,(plain-file "subuid"
+					   (string-join
+					    '("a066501:100000:65536")
+                                            "\n" 'suffix)))
+			    `("subgid"
+			      ,(plain-file "subgid"
+					   (string-join
+					    '("a066501:100000:65536")
+                                            "\n" 'suffix)))))
+
+      ;;
+      ;; this can also be managed per-user in ~/.config/containers.
+      ;;
+      (simple-service 'podman-containers-conf etc-service-type
+		      (list `("containers/policy.json"
+			      ,(plain-file "policy.json"
+					   "{\"default\": [{\"type\": \"insecureAcceptAnything\"}]}" ))))))))
 wsl-operating-system
