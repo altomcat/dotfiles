@@ -14,7 +14,15 @@
 	  "9c87d2feb0c07dd6e62f13acfcbba53d8c1f5b3a"
 	  (openpgp-fingerprint
 	   "4FF9 5EA8 27FB 0BF7 C9CE 6F03 7284 5387 AAC2 2DE0"))))
-
+       (channel
+        (name 'guix-rust-past-crates)
+        (url "https://codeberg.org/guix/guix-rust-past-crates.git")
+        (branch "trunk")
+        (introduction
+         (make-channel-introduction
+          "1db24ca92c28255b28076792b93d533eabb3dc6a"
+          (openpgp-fingerprint
+           "F4C2D1DF3FDEEA63D1D30776ACC66D09CA528292"))))
        ;; (channel
        ;; 	(name 'rde)
        ;; 	(url "https://git.sr.ht/~abcdw/rde")
