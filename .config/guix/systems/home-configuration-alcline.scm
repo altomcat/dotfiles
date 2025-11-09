@@ -59,7 +59,9 @@
      "direnv"
      "shellcheck"
      "graphicsmagick"
+     "wl-clipboard"
      "scrot"
+
 
      ;; dictionary
      "aspell"

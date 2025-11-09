@@ -57,6 +57,7 @@
     (packages
      (cons*
       (specification->package "podman")
+      (specification->package "glibc-locales")
       %base-packages))
 
     (services (list (service guix-service-type)

@@ -28,6 +28,7 @@
    "emacs-expand-region"
    "emacs-emojify"
    "emacs-elfeed"
+   "emacs-elfeed-protocol"
    "emacs-envrc"
    "emacs-eat"
    "emacs-ef-themes"
@@ -129,4 +130,5 @@
    "emacs-odin-ts-mode"
    "emacs-flycheck-odin"
    "emacs-svg-lib@0.2.8"
-   "emacs-ace-window-next"))
+   "emacs-ace-window-next"
+   "emacs-htmlize"))

@@ -1,6 +1,10 @@
 # Bash initialization for interactive non-login shells and
 # for remote shells (info "(bash) Bash Startup Files").
 
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export GUIX_DAEMON_SOCKET=/var/guix/daemon-socket/socket
+
 # Export 'SHELL' to child processes.  Programs such as 'screen'
 # honor it and otherwise use /bin/sh.
 export SHELL
@@ -32,8 +36,10 @@ export SSL_CERT_FILE="$HOME/.guix-profile/etc/ssl/certs/ca-certificates.crt"
 # just a quick reminder if guix import pypi ... failed
 # export SSL_CERT_DIR=/etc/ssl/certs
 
+export GUIX_TLS_CERTIFICATE_DIRECTORY="/etc/ssl/certs"
 export GIT_SSL_CAINFO="$SSL_CERT_FILE"
 export XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir
+export XDG_SESSION_TYPE="wayland"
 export LIBGL_ALWAYS_INDIRECT=0
 export QT_QPA_PLATFORM=wayland
 export DISPLAY=:0

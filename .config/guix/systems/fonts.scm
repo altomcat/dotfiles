@@ -5,4 +5,6 @@
    "font-awesome"
    "unicode-emoji"
    "font-google-noto-emoji"
+   "font-google-noto"
+   "font-gnu-unifont"
    ))
