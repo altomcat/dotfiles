@@ -1,0 +1,33 @@
+(define-module (guix-config systems alcline)
+  #:use-module (gnu)
+  #:use-module (gnu packages)
+  #:use-module (guix)
+  #:use-module (guix-config tools helper)
+  #:use-module (guix-config systems base-system)
+  #:use-module (guix-config services podman))
+
+(define-public alcline-operating-system
+  (operating-system
+    (inherit base-system)
+    (host-name "alcline")
+
+    ;; User account
+    (users (cons (user-account
+                  (name "a066501")
+                  (group "users")
+                  (home-directory "/home/a066501")
+                  (supplementary-groups '("wheel")))
+		 %base-user-accounts))
+
+    (packages
+     (cons*
+      (specification->package "podman")
+      %base-packages))
+
+    (services (list (service guix-service-type)
+                    (service special-files-service-type
+                             `(("/usr/bin/env" ,(file-append coreutils "/bin/env"))))
+
+		    (my-podman-service current-user-name)))))
+
+alcline-operating-system
