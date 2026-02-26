@@ -14,7 +14,7 @@
 		     networking
 		     security-token)
 
-(use-package-modules security-token)
+(use-package-modules security-token bash)
 
 (define-public wsl-operating-system
   (operating-system
@@ -36,6 +36,7 @@
                  %base-user-accounts))
 
     (kernel hello)
+    (kernel-arguments '("nokexec"))
     (initrd (lambda* (. rest) (plain-file "dummyinitrd" "dummyinitrd")))
     (initrd-modules '())
     (firmware '())
@@ -70,9 +71,8 @@
 
       ;; Security Keys
       (service pcscd-service-type)
-      ;; (udev-rules-service 'fido2 libfido2 #:groups '("plugdev"))
+      (service syslog-service-type)
       (udev-rules-service 'yubikey yubikey-personalization)
-      ;; (udev-rules-service 'security-key libu2f-host)
 
       (service special-files-service-type
                `(("/usr/bin/env" ,(file-append coreutils "/bin/env"))))
